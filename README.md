@@ -4,7 +4,7 @@
 
 
 
-🔥🔥🔥 特别提示，之前本仓库链接在：https://github.com/summitgao/OUC-LaTex-master 因为启用了2FA验证密码无法找回，现在启用本仓库继续维护。欢迎有问题在论坛发帖讨论
+🔥🔥🔥 特别提示，之前本仓库链接在：https://github.com/summitgao/OUC-LaTex-master 因为启用了2FA验证密码无法找回，现在启用本仓库继续维护。欢迎有问题在[讨论区](https://github.com/oucailab/OUC-LaTex-master/discussions)发帖讨论
 
 
 
