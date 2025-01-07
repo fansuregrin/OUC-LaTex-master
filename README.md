@@ -1,6 +1,11 @@
-
-
 ## 中国海洋大学硕博士学位论文 LaTeX 模板（overleaf & Texpage版）
+
+[![Join Discussions](https://img.shields.io/github/discussions/oucailab/OUC-LaTex-master)](https://github.com/oucailab/OUC-LaTex-master/discussions)
+
+
+
+🔥🔥🔥 特别提示，之前本仓库链接在：https://github.com/summitgao/OUC-LaTex-master 因为启用了2FA验证密码无法找回，现在启用本仓库继续维护。欢迎有问题在论坛发帖讨论
+
 
 
 本模板是中国海洋大学硕博士学位论文 LaTeX 模板。LaTeX是一个流行的编辑科学类文章的工具。 大多数科学类书籍，期刊，文章都采用了LaTeX。 使用这个模板可以使你从无聊的格式限制中解脱出来，从而更专注地阐述自己的想法。 希望本模板能够帮助你入门LaTeX, 如果你有关于本模板的良好意见和建议，请在顶栏的问题(issue)一栏中提出。
@@ -45,6 +50,31 @@ Overleaf 是一个线上 LaTeX 编辑器，可以在不安装任何工具的情�
 - 20220115，为方便在 Overleaf  中快速编译，将正文拆分为若干单独文件
 - 20220501，修改“关键词”格式，小节不换页（赵政达修改）
 - 20230126，考虑到图表标题和正文字体一样大，有时区分不开是正文还是图表标题，因此把图表标题改小一号（高峰修改）
+
+
+
+## 反馈与贡献
+
+本模版是由诸多感兴趣的同学一起维护的开源项目，我们非常欢迎问题反馈和新的贡献者！
+
+### 反馈问题
+
+如果在使用上有任何问题，建议通过以下方式进行反馈（按推荐顺序排序）：
+
+* 如遇不会使用、编译错误等问题，请至 [在 GitHub 项目讨论区提问](https://github.com/oucailab/OUC-LaTex-master/discussions) (推荐)
+* 如遇模版 BUG，或有新的需求，请至 [在 GitHub 项目中提 issue](https://github.com/oucailab/OUC-LaTex-master/issues)
+
+
+
+### 成为贡献者
+
+这个仓库是面向用户的**示例模版**，如果你有很好的排版示例，可以提交到此仓库与大家分享。如果你想为本仓库贡献代码，欢迎发 Pull Request，然后再将更新同步到本仓库。
+
+除了提交 Pull Request 之外，还有以下方式可以进行贡献：
+
+* 帮助我们解答同学们的[问题](https://github.com/oucailab/OUC-LaTex-master/discussions)，这些问题你也可能遇到过并且知道如何解决；
+* 向周围同学安利 OUC-LaTex-master，让更多的同学使用我们维护的模板；
+* 在讨论区中分享你的使用体验，以及吐槽。如果你也想成为项目的长期维护者，也可以通过邮件/讨论区告诉我们。:-)
 
 
 
