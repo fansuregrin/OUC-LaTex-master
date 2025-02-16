@@ -22,7 +22,7 @@
 
 \PassOptionsToClass{scheme=chinese}{ctexbook}
 \PassOptionsToPackage{quiet}{xeCJK}
-\LoadClass[UTF8,a4paper,zihao=-4]{ctexbook}[2017/04/01]
+\LoadClass[UTF8,a4paper,zihao=-4,twoside]{ctexbook}[2017/04/01]
 \PassOptionsToClass{scheme=chinese}{ctexbook}
 % ===============================================
 % Required Package
@@ -42,6 +42,10 @@
 \RequirePackage{algorithmicx}
 \RequirePackage[sort&compress]{natbib}
 \RequirePackage{bashful}
+\RequirePackage{xstring}
+\RequirePackage{geometry}
+\RequirePackage{ctex}
+\RequirePackage{letltxmacro}
 \ifouc@pdf
 \RequirePackage{hyperref}
 \else
@@ -160,12 +164,14 @@
 % Header Format
 \newcommand\ouc@wordcount{\wordcount}
 
-\newcommand\ouc@hf@font{\fontsize{9\bp@}{12\bp@}\selectfont}
+\newcommand\ouc@hf@font{\fontsize{10.5\bp@}{12\bp@}\selectfont}
 \newcommand\ouc@header{\@title}
 \fancypagestyle{title}{%
   \fancyhf{}%
-  \fancyhead[C]{\ouc@hf@font\ouc@header}%
+  \fancyhead[CO]{\ouc@hf@font 中国海洋大学硕（博）士学位论文} % 奇数页页眉
+  \fancyhead[CE]{\ouc@hf@font\ouc@header} % 偶数页页眉
   \fancyfoot[C]{\ouc@hf@font\thepage}%
+  \renewcommand{\headrulewidth}{0.4pt} % 添加页眉下划线
   \ifouc@count
     \fancyfoot[R]{\color{gray}\ouc@hf@font \ouc@wordcount}%
   \fi
@@ -176,7 +182,7 @@
   \fancyhead[C]{}
   \fancyfoot[C]{\ouc@hf@font\thepage}%
 }
-\pagestyle{title}
+
 
 % ===============================================
 % Pre Content Format 
@@ -220,16 +226,21 @@
 % Abstract
 
 \NewDocumentCommand\ouc@chapter{o m}{%
-  \IfValueTF{#1}{%
-    \chaptermark{#1}%
-  }{%
-    \chaptermark{#2}%
-  }%
+  \IfValueTF{#1}% 检查是否提供了可选参数
   {
-  \makeatletter\c@secnumdepth=-1\makeatother
-  \chapter{#2}
-  }
-  }
+    \chaptermark{#1}% 页眉使用可选参数
+    \makeatletter
+    \c@secnumdepth=-1 % 抑制章节编号
+    \makeatother
+    \chapter[#1]{#2}% 目录显示 #1，正文显示 #2
+  }{
+    \chaptermark{#2}% 页眉使用必选参数
+    \makeatletter
+    \c@secnumdepth=-1 % 抑制章节编号
+    \makeatother
+    \chapter{#2}% 
+  }%
+}
 \newcommand\pagenumberingnoreset[1]{\gdef\thepage{\csname @#1\endcsname\c@page}}
 
 
@@ -244,14 +255,14 @@
     \fontsize{16\bp@}{26.67\bp@}\sffamily\@title
   \end{center}
   \let\clearpage\relax
-  \ouc@chapter{摘\zhspace[1]要}
+  \ouc@chapter[摘要]{摘\zhspace[2]要}
   \let\clearpage\standardclearpage
   \vspace{1em}
 }{
-  \par\null\par\noindent\hangindent=4\ccwd\relax
-  \sffamily{关键词：\ouc@keywords}
+  \noindent\hangindent=4\ccwd\relax
+  \sffamily\fontsize{12bp}{20bp}\selectfont{关键词：\ouc@keywords}
   \clearpage
-  \pagestyle{title}
+  
   \pagenumberingnoreset{arabic}
 }
 
@@ -268,15 +279,16 @@
   \let\clearpage\standardclearpage
   \vspace{1em}
 }{
-  \par\null\par\noindent\hangindent=5.3em\relax
-  \textbf{Keywords: \ouc@enkeywords}
+  \noindent\hangindent=5.3em\relax
+  \fontsize{12bp}{20bp}\selectfont\textbf{Keywords: \ouc@enkeywords}
   \clearpage
   \pagestyle{title}
   \pagenumberingnoreset{arabic}
 }
 
 % Toc
-\renewcommand{\contentsname}{目\zhspace[1]录}
+% 目录格式设置
+\renewcommand{\contentsname}{目\zhspace[2]录}
 \renewcommand\tableofcontents{%
   \pagestyle{empty}
   \chapter*{\contentsname}%
@@ -286,10 +298,11 @@
 }
 
 \newcommand\ouc@leaders{\titlerule*[4\bp@]{\textperiodcentered}}
+
 \titlecontents{chapter}
 [\z@]{\fontsize{14\bp@}{25.67\bp@}\selectfont}
 {\contentspush{\thecontentslabel\unskip\hspace{\ccwd}}}{}
-{ \ouc@leaders\contentspage}
+{\unskip\hspace{\ccwd}\ouc@leaders\contentspage}
 \titlecontents{section}
 [\ccwd]{\normalsize}
 {\contentspush{\thecontentslabel\hspace{\ccwd}}}{}
@@ -298,6 +311,7 @@
 [2\ccwd]{\normalsize}
 {\contentspush{\thecontentslabel\hspace{\ccwd}}}{}
 { \ouc@leaders\contentspage}
+
 
 
 % ===============================================
@@ -317,19 +331,25 @@
     chapter = {
       format      = \sffamily\fontsize{16\bp@}{26.67\bp@}\selectfont,
       aftername   = \zhspace[0.5],
+      parskip = 24bp, 
+      parindent = 18bp, 
       beforeskip  = 1em,
       afterskip   = 1.8em,
       fixskip     = true,
     },
     section = {
       format = \sffamily\fontsize{14\bp@}{25.67\bp@}\selectfont,
+      parskip = 24bp, 
+      parindent = 6bp, 
       aftername   = \zhspace[0.5],
       afterskip   = 1.2em,
       fixskip     = false,
     },
     subsection = {
-      format    = \fontsize{12\bp@}{22\bp@}\selectfont,
+      format    = \sffamily\fontsize{12\bp@}{22\bp@}\selectfont,
       aftername   = \zhspace[0.5],
+      parskip = 12bp, 
+      parindent = 6bp, 
       afterskip   = 1.2em,
       fixskip     = false,
       indent    = \z@,
@@ -408,7 +428,7 @@
   \clearpage
   \makeafter
   \ouc@setchinese
-  \ouc@chapter{致\zhspace[1]谢}
+  \ouc@chapter[致谢]{致\zhspace[2]谢}
 }{
   \clearpage
 }
@@ -421,3 +441,4 @@
 }{
   \clearpage
 }
+
