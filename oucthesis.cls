@@ -151,7 +151,7 @@
 \geometry{
   paper      = a4paper,
   vmargin    = 2.54cm,
-  hmargin    = 3.17cm,
+  hmargin    = 2.54cm,
   headheight = 0.75cm,
   headsep    = 0.29cm,
   footskip   = 0.79cm,
@@ -168,7 +168,7 @@
 \newcommand\ouc@header{\@title}
 \fancypagestyle{title}{%
   \fancyhf{}%
-  \fancyhead[CO]{\ouc@hf@font 中国海洋大学硕（博）士学位论文} % 奇数页页眉
+  \fancyhead[CO]{\ouc@hf@font 中国海洋大学硕士学位论文} % 奇数页页眉
   \fancyhead[CE]{\ouc@hf@font\ouc@header} % 偶数页页眉
   \fancyfoot[C]{\ouc@hf@font\thepage}%
   \renewcommand{\headrulewidth}{0.4pt} % 添加页眉下划线
@@ -248,21 +248,16 @@
 \let\standardclearpage\clearpage
 \newenvironment{abstract}{%
   \clearpage
-  \pagestyle{plain}%
+  \pagestyle{plain}
   \pagenumberingnoreset{Roman}
   \ouc@setchinese
-  \begin{center}
-    \fontsize{16\bp@}{26.67\bp@}\sffamily\@title
-  \end{center}
   \let\clearpage\relax
-  \ouc@chapter[摘要]{摘\zhspace[2]要}
+  \ouc@chapter[摘要]{摘 ~~~~ 要}
   \let\clearpage\standardclearpage
   \vspace{1em}
 }{
   \noindent\hangindent=4\ccwd\relax
-  \sffamily\fontsize{12bp}{20bp}\selectfont{关键词：\ouc@keywords}
   \clearpage
-  
   \pagenumberingnoreset{arabic}
 }
 
@@ -271,30 +266,24 @@
   \pagestyle{plain}
   \pagenumberingnoreset{Roman}
   \ouc@setenglish
-  \begin{center}
-    \fontsize{16\bp@}{26.67\bp@}\sffamily\ouc@entitle
-  \end{center}
   \let\clearpage\relax
-  \ouc@chapter[Abstract]{Abstract}%
+  \ouc@chapter[Abstract]{ABSTRACT}
   \let\clearpage\standardclearpage
   \vspace{1em}
 }{
-  \noindent\hangindent=5.3em\relax
-  \fontsize{12bp}{20bp}\selectfont\textbf{Keywords: \ouc@enkeywords}
+  \noindent\hangindent=4\ccwd\relax
   \clearpage
-  \pagestyle{title}
   \pagenumberingnoreset{arabic}
 }
 
 % Toc
 % 目录格式设置
-\renewcommand{\contentsname}{目\zhspace[2]录}
+\renewcommand{\contentsname}{目 ~~~~ 录}
 \renewcommand\tableofcontents{%
   \pagestyle{empty}
   \chapter*{\contentsname}%
   \@starttoc{toc}%
   \clearpage
-  \pagestyle{title}
 }
 
 \newcommand\ouc@leaders{\titlerule*[4\bp@]{\textperiodcentered}}
@@ -329,28 +318,23 @@
   \setcounter{page}{1}
   \ctexset{
     chapter = {
-      format      = \sffamily\fontsize{16\bp@}{26.67\bp@}\selectfont,
+      format      = \sffamily\fontsize{16\bp@}{26.67\bp@}\selectfont\centering,
       aftername   = \zhspace[0.5],
-      parskip = 24bp, 
-      parindent = 18bp, 
-      beforeskip  = 1em,
-      afterskip   = 1.8em,
-      fixskip     = true,
+      beforeskip  = 1.2em,
+      afterskip   = 0.8em,
+      fixskip     = false,
     },
     section = {
       format = \sffamily\fontsize{14\bp@}{25.67\bp@}\selectfont,
-      parskip = 24bp, 
-      parindent = 6bp, 
       aftername   = \zhspace[0.5],
-      afterskip   = 1.2em,
+      beforeskip  = 1.2em,
+      afterskip   = 0.3em,
       fixskip     = false,
     },
     subsection = {
       format    = \sffamily\fontsize{12\bp@}{22\bp@}\selectfont,
       aftername   = \zhspace[0.5],
-      parskip = 12bp, 
-      parindent = 6bp, 
-      afterskip   = 1.2em,
+      afterskip   = 0.3em,
       fixskip     = false,
       indent    = \z@,
     },
@@ -433,12 +417,17 @@
   \clearpage
 }
 
+\newenvironment{achievement}{%
+  \clearpage
+  \makeafter
+  \ouc@setchinese
+  \ouc@chapter{攻读硕士学位期间取得的研究成果}
+}{\clearpage}
+
 \newenvironment{profile}{%
   \clearpage
   \makeafter
   \ouc@setchinese
-  \ouc@chapter{个人简历、在学期间发表的学术论文与研究成果}
-}{
-  \clearpage
-}
+  \ouc@chapter{作者简介}
+}{\clearpage}
 
