@@ -1,8 +1,12 @@
+
+
 ## 中国海洋大学硕博士学位论文 LaTeX 模板 (Overleaf & TexPage 版)
 
 [![Join Discussions](https://img.shields.io/github/discussions/oucailab/OUC-LaTex-master)](https://github.com/oucailab/OUC-LaTex-master/discussions)
 
 
+
+🔥🔥🔥【20250219】学校最新的模板行距是20磅，我们也进行相应修改。在main.tex 中添加了\setlength{\baselineskip}{20pt}，从中文摘要开始，段落行距就是20磅了。
 
 🔥🔥🔥【20250218】2025年2月，学校印发了《研究生学位论文撰写指南》，发布了最新的研究生学位论文模板。针对最新模板，我们进行了大量修改。欢迎大家使用并提出建议！
 
