@@ -150,8 +150,8 @@
 
 \geometry{
   paper      = a4paper,
-  vmargin    = 2.54cm,
-  hmargin    = 2.54cm,
+  vmargin    = 2.7cm,
+  hmargin    = 2.7cm,
   headheight = 0.75cm,
   headsep    = 0.29cm,
   footskip   = 0.79cm,
@@ -345,8 +345,9 @@
       indent    = \ccwd,
     },
     paragraph = {
-      format    = \rmfamily\fontsize{12\bp@}{22\bp@}\selectfont,
-      aftername = {},
+      format    = \rmfamily\fontsize{12\bp@}{20\bp@}\selectfont,
+      aftername = \zhspace[0],
+      fixskip   = false,
       indent    = \ccwd,
     },
   }
