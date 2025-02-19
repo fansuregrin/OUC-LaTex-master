@@ -28,9 +28,9 @@
 
 ## 如何使用
 
-**本模板在 Overleaf 下测试通过，本地编译尚未测试。** 可以通过链接：https://www.overleaf.com/read/jkrpnmrnmqwz   在线浏览本项目。考虑到 overleaf 服务器在国外，有时不太稳定，推荐大家使用国产软件 Texpage，我们组日常使用感觉比 overleaf 流畅许多，地址：https://texpage.com/
+**本模板在 Overleaf 下测试通过，本地编译尚未测试。** 可以通过链接：https://www.overleaf.com/read/vmqmwgkcbnxf#aa257e   在线浏览本项目。考虑到 overleaf 服务器在国外，有时不太稳定，推荐大家使用国产软件 Texpage，我们组日常使用感觉比 overleaf 流畅许多，地址：https://texpage.com/
 
-![img](img/20210731170447.jpg)
+![img](img/20250219095840.jpg)
 
 
 Overleaf 是一个线上 LaTeX 编辑器，可以在不安装任何工具的情况下编写 LaTeX 文档，同时也可以和其他人共享文档，共同编辑。
