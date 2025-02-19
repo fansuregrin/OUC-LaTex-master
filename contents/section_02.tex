@@ -1,61 +1,32 @@
-\chapter{公式、图与表}
+\chapter{数据与主要方法}
 
-\section{公式插入}
-本节为公式 \ref{eq:example} 插入测试。
+\section{数据}
+
+\subsection{船载ADCP数据}
+
+本文使用了Nuka Arctica邮轮船载声学多普勒流速剖面仪（Acoustic Doppler Current Profiler, ADCP）测量的上层海洋高空间分辨率流速资料。
+
+XXXXXXXX。
+
+\section{分析方法}
+
+\subsection{Wave-Vortex分解}
+
+本文使用了Wave-Vortex分解方法对船载ADCP测量结果进行了分析，参照Bühler提出的波-涡分解方法，采用一维动能谱的Wave-Vortex动能谱分解办法。这种方法能够解决由空间尺度上波动和涡动的尺度重叠导致二者在空间谱上信号混杂的问题。但分解方法和其他湍流分析一样有严格的假设：（1）数据测量稳定均匀，（2）各向同性，（3）数据在观测空间尺度上具有周期性。
+
+首先，我们将跨航迹流速和沿航迹动能谱通过Helmholtz分解，转化为旋转和辐散两部分，将其写成谱函数的形式：
 
 \begin{equation}
-\begin{split}
-I(X;Y)&=\mathcal{D}_{KL}(\mathbb{J}(X,Y)||\mathbb{P}(X)\otimes\mathbb{P}(Y)).
-\end{split}
-\label{eq:example}
+k\frac{\mathrm{d}\widehat{F}^{\phi}}{\mathrm{d}k}-\mathrm{d}\widehat{F}^{\psi}=-\frac{\widehat{C}^{v}}{2}
 \end{equation}
 
-\section{图片插入}
-有的同学可能听说“\LaTeX{} 只能使用 eps 格式的图片”，甚至把 jpg 格式转为 eps。
-事实上，这种做法已经过时。
-而且每次编译时都要要调用外部工具解析 eps，导致降低编译速度。
-所以我们推荐矢量图直接使用 pdf 格式，位图使用 jpeg 或 png 格式。
-\begin{figure*}[ht]
-    \centering
-	\includegraphics[width=0.5\textwidth]{./img/ouclogo}
-	\caption{中国海洋大学图片。}
-	\label{fig:ouc}
-\end{figure*}
+\begin{equation}
+k\frac{\mathrm{d}\widehat{F}^{\psi}}{\mathrm{d}k}-\mathrm{d}\widehat{F}^{\phi}=-\frac{\widehat{C}^{u}}{2}
+\end{equation}
 
-\section{表格插入}
+{\color{red}``对于别人论文里的公式，可以截图粘贴到豆包里转化为 latex 代码，效率非常高"}
 
-本校没有过多的表格格式要求，只要求表头在上即可。
-
-\begin{table}[htb]
-  \centering\small
-  \caption{表号和表题在表的正上方}
-  \label{tab:exampletable}
-  \begin{tabular}{cl}
-    \toprule
-    类型   & 描述                                       \\
-    \midrule
-    挂线表 & 挂线表也称系统表、组织表，用于表现系统结构 \\
-    无线表 & 无线表一般用于设备配置单、技术参数列表等   \\
-    无线表 & 无线表一般用于设备配置单、技术参数列表等   \\
-    \bottomrule
-  \end{tabular}
-\end{table}
-
-\section{算法环境}
-这是算法演示。关于该宏包的具体用法，请阅读宏包的官方文档。这是算法演示。关于该宏包的具体用法，请阅读宏包的官方文档。这是算法演示。关于该宏包的具体用法，请阅读宏包的官方文档。
+式中，（$\widehat{F}{\phi}$, $\widehat{F}{\psi}$）为计算过程谱函数，（$\widehat{C}^{u}$, $\widehat{C}^{v}$）分别为沿航迹函数和跨航迹函数，$k$为水平波数……
 
 
-\begin{algorithm}[htb]
-\small
-    \caption{发表论文}
-    \begin{algorithmic}[1] %每行显示行号  
-        \Require 脑子  
-        \While{Ture}
-            做实验
-            \If {巧了}
-                \State break
-            \EndIf
-        \EndWhile 
-        \end{algorithmic}  
-    \end{algorithm} 
 
