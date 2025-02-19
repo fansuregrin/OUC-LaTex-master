@@ -320,21 +320,22 @@
     chapter = {
       format      = \sffamily\fontsize{16\bp@}{26.67\bp@}\selectfont\centering,
       aftername   = \zhspace[0.5],
-      beforeskip  = 1.2em,
-      afterskip   = 0.8em,
+      beforeskip  = 28pt,
+      afterskip   = 18pt,
       fixskip     = false,
     },
     section = {
       format = \sffamily\fontsize{14\bp@}{25.67\bp@}\selectfont,
       aftername   = \zhspace[0.5],
-      beforeskip  = 1.2em,
-      afterskip   = 0.3em,
+      beforeskip  = 24pt,
+      afterskip   = 6pt,
       fixskip     = false,
     },
     subsection = {
       format    = \sffamily\fontsize{12\bp@}{22\bp@}\selectfont,
       aftername   = \zhspace[0.5],
-      afterskip   = 0.3em,
+      beforeskip  = 12pt,
+      afterskip   = 6pt,
       fixskip     = false,
       indent    = \z@,
     },
@@ -366,7 +367,7 @@
 
 \renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}}
 \RequirePackage{mathtools}
-\newtagform{test}[]{式（}{）}
+\newtagform{test}[]{（}{）}
 \usetagform{test}
 
 % ===============================================
