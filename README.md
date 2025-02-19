@@ -1,5 +1,3 @@
-
-
 ## 中国海洋大学硕博士学位论文 LaTeX 模板 (Overleaf & TexPage 版)
 
 [![Join Discussions](https://img.shields.io/github/discussions/oucailab/OUC-LaTex-master)](https://github.com/oucailab/OUC-LaTex-master/discussions)
@@ -10,7 +8,7 @@
 
 🔥🔥🔥【20250218】2025年2月，学校印发了《研究生学位论文撰写指南》，发布了最新的研究生学位论文模板。针对最新模板，我们进行了大量修改。欢迎大家使用并提出建议！
 
-🔥🔥🔥 特别提示，之前本仓库链接在：https://github.com/summitgao/OUC-LaTex-master 因为启用了2FA验证密码无法找回，现在启用本仓库继续维护。欢迎有问题在[讨论区](https://github.com/oucailab/OUC-LaTex-master/discussions)发帖讨论
+🔥🔥🔥 特别提示，之前本仓库链接在：https://github.com/summitgao/OUC-LaTex-master 因为启用了2FA验证密码无法找回，现在启用本仓库继续维护。欢迎有问题在[issues](https://github.com/oucailab/OUC-LaTex-master/issues) 里面讨论
 
 
 
@@ -70,10 +68,7 @@ Overleaf 是一个线上 LaTeX 编辑器，可以在不安装任何工具的情�
 
 ### 反馈问题
 
-如果在使用上有任何问题，建议通过以下方式进行反馈（按推荐顺序排序）：
-
-* 如遇不会使用、编译错误等问题，请至 [在 GitHub 项目讨论区提问](https://github.com/oucailab/OUC-LaTex-master/discussions) (推荐)
-* 如遇模版 BUG，或有新的需求，请至 [在 GitHub 项目中提 issue](https://github.com/oucailab/OUC-LaTex-master/issues)
+如果在使用上有任何问题，请至 [在 GitHub 项目issue提问](https://github.com/oucailab/OUC-LaTex-master/issues) 
 
 
 
@@ -83,7 +78,7 @@ Overleaf 是一个线上 LaTeX 编辑器，可以在不安装任何工具的情�
 
 除了提交 Pull Request 之外，还有以下方式可以进行贡献：
 
-* 帮助我们解答同学们的[问题](https://github.com/oucailab/OUC-LaTex-master/discussions)，这些问题你也可能遇到过并且知道如何解决；
+* 帮助我们解答同学们的[问题](https://github.com/oucailab/OUC-LaTex-master/issues)，这些问题你也可能遇到过并且知道如何解决；
 * 向周围同学安利 OUC-LaTex-master，让更多的同学使用我们维护的模板；
 * 在讨论区中分享你的使用体验，以及吐槽。如果你也想成为项目的长期维护者，也可以通过邮件/讨论区告诉我们。:-)
 
@@ -96,3 +91,4 @@ Overleaf 是一个线上 LaTeX 编辑器，可以在不安装任何工具的情�
 学校标志的版权归中国海洋大学所有
 
 有任何问题可以随时联系高老师：gaofeng@ouc.edu.cn
+
