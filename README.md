@@ -1,6 +1,6 @@
 ## 中国海洋大学硕博士学位论文 LaTeX 模板 (Overleaf & TexPage 版)
 
-[![Join Discussions](https://img.shields.io/github/discussions/oucailab/OUC-LaTex-master)](https://github.com/oucailab/OUC-LaTex-master/discussions)
+
 
 
 
