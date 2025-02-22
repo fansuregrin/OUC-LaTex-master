@@ -93,3 +93,5 @@ Overleaf 是一个线上 LaTeX 编辑器，可以在不安装任何工具的情�
 
 有任何问题可以随时联系高老师：gaofeng@ouc.edu.cn
 
+有任何问题也可以随时联系高老师的研究生小黄：yellowstar168@outlook.com
+
