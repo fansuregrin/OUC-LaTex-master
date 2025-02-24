@@ -46,17 +46,44 @@
 
 
 % 目录
-\tableofcontents
+\tableofcontents % 中文目录
+\tableofengcontents % 英文目录
+
+
+% 图表目录
+\newcommand{\loflabel}{图} 
+\renewcommand{\numberline}[1]{\loflabel~#1\hspace*{1em}}
+\renewcommand{\listfigurename}{插图清单} 
+\begin{center}
+\clearpage
+\phantomsection\addcontentsline{toc}{chapter}{插图清单}
+\phantomsection\addengcontent{chapter}{Figure list}
+{\listoffigures}
+\end{center}
+
+
+\newcommand{\lotlabel}{表}
+\renewcommand{\numberline}[1]{\lotlabel~#1\hspace*{1em}}
+\renewcommand{\listtablename}{表格清单} 
+\begin{center}
+\clearpage
+\phantomsection\addcontentsline{toc}{chapter}{表格清单}
+\phantomsection\addengcontent{chapter}{Table list}
+{\listoftables}
+\end{center}
+
+
 
 % 正文
 \mainmatter
-
+\pagenumbering{arabic}
 
 
 \include{contents/section_01}
 \include{contents/section_02}
 \include{contents/section_03}
 \include{contents/section_04}
+\include{contents/section_05}
 
 % 参考文献
 \bibliographystyle{oucauthoryear}
