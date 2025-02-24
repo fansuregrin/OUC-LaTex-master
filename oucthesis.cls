@@ -224,7 +224,6 @@
 
 
 % Abstract
-
 \NewDocumentCommand\ouc@chapter{o m}{%
   \IfValueTF{#1}% 检查是否提供了可选参数
   {
@@ -276,11 +275,32 @@
   \pagenumberingnoreset{arabic}
 }
 
-% Toc
-% 目录格式设置
-\renewcommand{\contentsname}{目 ~~~~ 录}
+
+% TOC: 英文目录设置
+\newcommand\engcontentsname{Contents}
+\newcommand\tableofengcontents{%
+  \pagestyle{plain}
+  \pagenumberingnoreset{Roman}
+  \renewcommand{\headrulewidth}{0pt} % 取消页眉横线
+  \chapter*{\engcontentsname}%
+  \@starttoc{toe}%
+  \clearpage
+}
+\newcommand\addengcontents[2]{%
+    \addcontentsline{toe}{#1}{\protect\numberline{\csname the#1\endcsname}#2}}
+\newcommand\addengcontent[2]{\addcontentsline{toe}{#1}{#2}}
+\newcommand\enchapter[1]{\addengcontents{chapter}{#1}}
+\newcommand\ensection[1]{\addengcontents{section}{#1}}
+\newcommand\ensubsection[1]{\addengcontents{subsection}{#1}}
+
+
+
+% TOC: 中文目录格式设置
+\renewcommand{\contentsname}{目\quad\quad 录}
 \renewcommand\tableofcontents{%
-  \pagestyle{empty}
+  \pagestyle{plain}
+  \pagenumberingnoreset{Roman}
+  \renewcommand{\headrulewidth}{0pt} % 取消页眉横线
   \chapter*{\contentsname}%
   \@starttoc{toc}%
   \clearpage
@@ -300,6 +320,12 @@
 [2\ccwd]{\normalsize}
 {\contentspush{\thecontentslabel\hspace{\ccwd}}}{}
 { \ouc@leaders\contentspage}
+
+
+
+
+
+
 
 
 
@@ -364,6 +390,44 @@
 \captionsetup{
    labelsep=space
 }
+
+
+% 自定义图标题格式
+\newcommand{\figurecaption}[2]{%
+    % \vspace{4pt} 
+    \caption[#1]{%
+        \centering \quad #1 \\[6pt] % 在中文和英文之间增加6pt的垂直间距
+        \centering \textnormal{Fig.}~\thefigure\quad #2
+    }
+}
+
+% 自定义表格标题格式
+\newcommand{\tablecaption}[2]{%
+    \caption[#1]{%
+        \centering \quad #1 \\[6pt] % 在中文和英文之间增加6pt的垂直间距
+        \centering \textnormal{Table.}~\thetable\quad #2 \\[6pt] 
+    }
+}
+
+% 设置中英文标题格式
+\captionsetup[figure]{
+    labelsep=space,   % 中文标题和编号之间空格
+    format=hang,      % 标题悬挂
+    singlelinecheck=false,  % 允许多行显示
+    font={small},     % 小号字体
+    position=below,   % 标题放在图片下方
+    skip=5pt          % 图形与标题之间的间距
+}
+
+\captionsetup[table]{
+    labelsep=space,
+    format=hang,
+    singlelinecheck=false,
+    font={small},
+    position=below,
+    skip=5pt
+}
+
 
 \renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}}
 \RequirePackage{mathtools}
@@ -432,4 +496,8 @@
   \ouc@setchinese
   \ouc@chapter{作者简介}
 }{\clearpage}
+
+
+
+
 
