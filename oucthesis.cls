@@ -46,6 +46,7 @@
 \RequirePackage{geometry}
 \RequirePackage{ctex}
 \RequirePackage{letltxmacro}
+\RequirePackage{fontspec}
 \ifouc@pdf
 \RequirePackage{hyperref}
 \else
@@ -344,21 +345,21 @@
   \setcounter{page}{1}
   \ctexset{
     chapter = {
-      format      = \sffamily\fontsize{16\bp@}{26.67\bp@}\selectfont\centering,
+      format      = {\sffamily\fontsize{16\bp@}{26.67\bp@}\selectfont\centering\fontspec{Times New Roman}},
       aftername   = \zhspace[0.5],
       beforeskip  = 28pt,
       afterskip   = 18pt,
       fixskip     = false,
     },
     section = {
-      format = \sffamily\fontsize{14\bp@}{25.67\bp@}\selectfont,
+      format = {\sffamily\fontsize{14\bp@}{25.67\bp@}\selectfont\fontspec{Times New Roman}},
       aftername   = \zhspace[0.5],
       beforeskip  = 24pt,
       afterskip   = 6pt,
       fixskip     = false,
     },
     subsection = {
-      format    = \sffamily\fontsize{12\bp@}{22\bp@}\selectfont,
+      format    = {\sffamily\fontsize{12\bp@}{22\bp@}\selectfont\fontspec{Times New Roman}},
       aftername   = \zhspace[0.5],
       beforeskip  = 12pt,
       afterskip   = 6pt,
@@ -366,13 +367,13 @@
       indent    = \z@,
     },
     subsubsection = {
-      format    = \rmfamily\fontsize{12\bp@}{22\bp@}\selectfont,
+      format    = {\rmfamily\fontsize{12\bp@}{22\bp@}\selectfont\fontspec{Times New Roman}},
       aftername   = \zhspace[0.5],
       fixskip     = false,
       indent    = \ccwd,
     },
     paragraph = {
-      format    = \rmfamily\fontsize{12\bp@}{20\bp@}\selectfont,
+      format    = {\rmfamily\fontsize{12\bp@}{20\bp@}\selectfont\fontspec{Times New Roman}},
       aftername = \zhspace[0],
       fixskip   = false,
       indent    = \ccwd,
