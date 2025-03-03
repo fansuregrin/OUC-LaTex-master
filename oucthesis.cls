@@ -149,13 +149,18 @@
 % ===============================================
 % Page Format 
 
+% 页边距设置：上、下、左、右边距均为25 mm，应用于整篇文档
+% 页眉边距 15 mm
+% 页脚边距15 mm
 \geometry{
-  paper      = a4paper,
-  vmargin    = 2.7cm,
-  hmargin    = 2.7cm,
-  headheight = 0.75cm,
-  headsep    = 0.29cm,
-  footskip   = 0.79cm,
+  paper       = a4paper,
+  includehead = false,
+  includefoot = false,
+  vmargin     = 25mm,
+  headheight  = 7mm,
+  headsep     = 3mm,
+  footskip    = 10mm,
+  hmargin     = 25mm
 }
 \pagestyle{fancy}
 \let\sectionmark\@gobble
@@ -169,7 +174,7 @@
 \newcommand\ouc@header{\@title}
 \fancypagestyle{title}{%
   \fancyhf{}%
-  \fancyhead[CO]{\ouc@hf@font 中国海洋大学硕士学位论文} % 奇数页页眉
+  \fancyhead[CO]{\ouc@hf@font 中国海洋大学硕（博）士学位论文} % 奇数页页眉
   \fancyhead[CE]{\ouc@hf@font\ouc@header} % 偶数页页眉
   \fancyfoot[C]{\ouc@hf@font\thepage}%
   \renewcommand{\headrulewidth}{0.4pt} % 添加页眉下划线
