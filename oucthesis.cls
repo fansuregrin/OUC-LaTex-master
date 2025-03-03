@@ -349,33 +349,36 @@
   \pagestyle{title}
   \setcounter{page}{1}
   \ctexset{
+    % 章标题用黑体三号字，居中无缩进，段前24磅，段后18磅，单倍行距。
+    % 题序和标题之间空1个半角空格。每章另起一页。
     chapter = {
-      format      = {\sffamily\fontsize{16\bp@}{26.67\bp@}\selectfont\centering\fontspec{Times New Roman}},
+      format      = {\zihao{3}\heiti\centering\fontspec{Times New Roman}},
       aftername   = \zhspace[0.5],
-      beforeskip  = 28pt,
+      beforeskip  = 24pt,
       afterskip   = 18pt,
-      fixskip     = false,
+      fixskip     = true,
     },
+    % 二级标题用黑体四号字，两端对齐，无缩进，段前24磅，段后6磅，单倍行距。题序与标题之间空1个半角空格。
     section = {
-      format = {\sffamily\fontsize{14\bp@}{25.67\bp@}\selectfont\fontspec{Times New Roman}},
+      format      = {\zihao{4}\heiti\fontspec{Times New Roman}\justifying},
       aftername   = \zhspace[0.5],
       beforeskip  = 24pt,
       afterskip   = 6pt,
-      fixskip     = false,
+      fixskip     = true,
     },
+    % 三级标题用黑体小四号字，两端对齐，无缩进，段前12磅，段后6磅，单倍行距。题序与标题之间空1个半角空格
     subsection = {
-      format    = {\sffamily\fontsize{12\bp@}{22\bp@}\selectfont\fontspec{Times New Roman}},
+      format      = {\zihao{-4}\heiti\justifying\fontspec{Times New Roman}},
       aftername   = \zhspace[0.5],
       beforeskip  = 12pt,
       afterskip   = 6pt,
-      fixskip     = false,
-      indent    = \z@,
+      fixskip     = true,
     },
     subsubsection = {
-      format    = {\rmfamily\fontsize{12\bp@}{22\bp@}\selectfont\fontspec{Times New Roman}},
+      format      = {\rmfamily\fontsize{12\bp@}{22\bp@}\selectfont\fontspec{Times New Roman}},
       aftername   = \zhspace[0.5],
       fixskip     = false,
-      indent    = \ccwd,
+      indent      = \ccwd,
     },
     paragraph = {
       format    = {\rmfamily\fontsize{12\bp@}{20\bp@}\selectfont\fontspec{Times New Roman}},
