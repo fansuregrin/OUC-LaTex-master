@@ -267,7 +267,7 @@
   \pagenumberingnoreset{Roman}
   \ouc@setenglish
   \let\clearpage\relax
-  \ouc@chapter[Abstract]{ABSTRACT}
+  \ouc@chapter[Abstract]{\zihao{3}\bfseries\textrm{ABSTRACT}}
   \let\clearpage\standardclearpage
   \vspace{1em}
 }{
@@ -278,7 +278,7 @@
 
 
 % TOC: 英文目录设置
-\newcommand\engcontentsname{Contents}
+\newcommand\engcontentsname{\bfseries\textrm{Contents}}
 \newcommand\tableofengcontents{%
   \pagestyle{plain}
   \pagenumberingnoreset{Roman}
