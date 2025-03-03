@@ -47,6 +47,7 @@
 \RequirePackage{ctex}
 \RequirePackage{letltxmacro}
 \RequirePackage{fontspec}
+\RequirePackage{titlesec}
 \ifouc@pdf
 \RequirePackage{hyperref}
 \else
@@ -349,44 +350,48 @@
   \pagestyle{title}
   \setcounter{page}{1}
   \ctexset{
-    % 章标题用黑体三号字，居中无缩进，段前24磅，段后18磅，单倍行距。
-    % 题序和标题之间空1个半角空格。每章另起一页。
+    % 章标题用黑体三号（16磅）字，居中无缩进，段前24磅，段后18磅，单倍行距。
+    % 题序和标题之间空1个半角空格。
     chapter = {
-      format      = {\zihao{3}\heiti\centering\fontspec{Times New Roman}},
+      format      = {\heiti\zihao{3}\centering\fontspec{Times New Roman}},
       aftername   = \zhspace[0.5],
       beforeskip  = 24pt,
       afterskip   = 18pt,
-      fixskip     = true,
+      fixskip     = false,
     },
-    % 二级标题用黑体四号字，两端对齐，无缩进，段前24磅，段后6磅，单倍行距。题序与标题之间空1个半角空格。
+    % 二级标题用黑体四号（14磅）字，两端对齐，无缩进，段前24磅，段后6磅，单倍行距。
+    % 题序与标题之间空1个半角空格。
     section = {
-      format      = {\zihao{4}\heiti\fontspec{Times New Roman}\justifying},
+      format      = {\heiti\zihao{4}\justifying\fontspec{Times New Roman}},
       aftername   = \zhspace[0.5],
-      beforeskip  = 24pt,
+      beforeskip  = 24\bp@,
       afterskip   = 6pt,
-      fixskip     = true,
+      fixskip     = false,
     },
-    % 三级标题用黑体小四号字，两端对齐，无缩进，段前12磅，段后6磅，单倍行距。题序与标题之间空1个半角空格
+    % 三级标题用黑体小四号（12磅）字，两端对齐，无缩进，段前12磅，段后6磅，单倍行距。
+    % 题序与标题之间空 1 个半角空格
     subsection = {
-      format      = {\zihao{-4}\heiti\justifying\fontspec{Times New Roman}},
+      format      = {\heiti\zihao{-4}\justifying\fontspec{Times New Roman}},
       aftername   = \zhspace[0.5],
       beforeskip  = 12pt,
       afterskip   = 6pt,
-      fixskip     = true,
-    },
-    subsubsection = {
-      format      = {\rmfamily\fontsize{12\bp@}{22\bp@}\selectfont\fontspec{Times New Roman}},
-      aftername   = \zhspace[0.5],
       fixskip     = false,
-      indent      = \ccwd,
     },
-    paragraph = {
-      format    = {\rmfamily\fontsize{12\bp@}{20\bp@}\selectfont\fontspec{Times New Roman}},
-      aftername = \zhspace[0],
-      fixskip   = false,
-      indent    = \ccwd,
+    % 撰写规范中为指定四级标题格式，暂定为黑体 11 磅字，两端对齐，无缩进，段前12磅，段后6磅，单倍行距。
+    subsubsection = {
+      format      = {\heiti\fontsize{11\bp@}{11\bp@}\selectfont\justifying\fontspec{Times New Roman}},
+      aftername   = \zhspace[0.5],
+      beforeskip  = 12pt,
+      afterskip   = 6pt,
+      fixskip     = false,
     },
   }
+  % 正文用宋体小四号（12磅）字，两端对齐，首行缩进2字符，段前0行，段后0行，行距为固定值20磅。
+  \songti\zihao{-4}
+  \setlength{\parindent}{2\ccwd}
+  \setlength{\parskip}{0pt}
+  \justifying
+  \setlength{\baselineskip}{20pt}
 }
 
 % Caption Stype
