@@ -1,98 +1,89 @@
 \documentclass[pdf,oneside]{oucthesis}
-% \setmainfont{TeX Gyre Termes}  %设置英文Times New Roman
-\setmainfont{Times New Roman}  %设置英文Times New Roman
-\setmathfont{TeX Gyre Termes Math} %设置英文数学Times New Roman
 % pdf: 便于阅读的电子版，去除掉多余的空白页，加入超链接等
 % print：打印版本，添加空白页，便于双面打印，禁用超链接
 
+\title{基于注意力和多尺度特征融合的水下图像增强方法研究}
 
-
-% ========================================
-%｜             论文信息填写               ｜
-% ========================================
-\title{北大西洋亚极地区域多尺度海洋过程能量交换}
-
-
-% ========================================
-%                包引用                 
-% ========================================
 \usepackage{booktabs}
+\usepackage{multicol}
 \usepackage{multirow}
 \usepackage{setspace}
-\usepackage{amsthm}
+\usepackage{fontspec}
+\usepackage{unicode-math}
 \usepackage{algorithm}
 \usepackage{algorithmicx}
 \usepackage{algpseudocode}
 \usepackage{caption}
-\usepackage{fontspec}
+\usepackage{pifont}
+\usepackage{subfigure}
+\usepackage{verbatim}
+\usepackage{geometry}
+
 \captionsetup{font={small}}
 
-% 内容区域
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+
+% \setCJKmainfont{SimSun}
+\setmainfont{Times New Roman}
+% \setCJKfamilyfont{song}{SimSun}
+
+% \disablefigures
+% \disabletables
+
 \begin{document}
 
 % 封面
-\include{data/cover}
+\include{data/cover.tex}
 % 学位论文答辩委员会
 \include{data/committee.tex}
 % 独创性声明
 \include{data/statement.tex}
 
-% 从摘要开始，设置行距为20磅
-\setlength{\baselineskip}{20pt}
-
+% 从中文摘要开始进行罗马数字页码编号
+\pagenumbering{roman}
 % 中文摘要
 \include{data/abstract_ch.tex}
 % 英文摘要
 \include{data/abstract_en.tex}
 
-
-
-
-
 % 目录
 \tableofcontents % 中文目录
 \tableofengcontents % 英文目录
 
-
-% 图表目录
-\newcommand{\loflabel}{图} 
-\renewcommand{\numberline}[1]{\loflabel~#1\hspace*{1em}}
-\renewcommand{\listfigurename}{插图清单} 
+% 插图目录
+\renewcommand{\numberline}[1]{图~#1\hspace*{1em}}
+\renewcommand{\listfigurename}{\heiti\zihao{3}插图清单}
 \begin{center}
-\clearpage
-\phantomsection\addcontentsline{toc}{chapter}{插图清单}
-\phantomsection\addengcontent{chapter}{Figure list}
-{\listoffigures}
+    \phantomsection\addcontentsline{toc}{chapter}{插图清单}
+    \phantomsection\addengcontent{chapter}{Figure list}
+    {\listoffigures}
 \end{center}
 
-
-\newcommand{\lotlabel}{表}
-\renewcommand{\numberline}[1]{\lotlabel~#1\hspace*{1em}}
-\renewcommand{\listtablename}{表格清单} 
+% 表格目录
+\renewcommand{\numberline}[1]{表~#1\hspace*{1em}}
+\renewcommand{\listtablename}{\heiti\zihao{3}表格清单}
 \begin{center}
-\clearpage
-\phantomsection\addcontentsline{toc}{chapter}{表格清单}
-\phantomsection\addengcontent{chapter}{Table list}
-{\listoftables}
+    \phantomsection\addcontentsline{toc}{chapter}{表格清单}
+    \phantomsection\addengcontent{chapter}{Table list}
+    {\listoftables}
 \end{center}
-
-
 
 % 正文
 \mainmatter
-\pagenumbering{arabic}
 
-
-\include{contents/section_01}
-\include{contents/section_02}
-\include{contents/section_03}
-\include{contents/section_04}
-\include{contents/section_05}
+\include{includes/chapter_01} % 第一章：绪论
+\include{includes/chapter_02} % 第二章：水下图像增强理论基础
+\include{includes/chapter_03} % 第三章：基于混合注意力和残差学习的水下图像增强
+\include{includes/chapter_04} % 第四章：基于多尺度特征融合的水下图像增强
+\include{includes/chapter_05} % 第五章：基于视觉状态空间模型和组混合注意力的水下图像增强
+\include{includes/chapter_06} % 第六章：任务导向型水下图像增强
+\include{includes/chapter_07} % 第七章：总结与展望
 
 % 参考文献
 \phantomsection\addengcontent{chapter}{References}
 \bibliographystyle{oucauthoryear}
-\bibliography{cite}
+\bibliography{reference}
 
 % 学术成果
 \phantomsection\addengcontent{chapter}{Published papers and research results}

@@ -1,7 +1,5 @@
-
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{oucthesis}[OUC Thesis Template]
-
 
 \newif\ifouc@pdf
 \DeclareOption{print}{\ouc@pdffalse}
@@ -27,6 +25,7 @@
 % ===============================================
 % Required Package
 \RequirePackage{amsmath}
+\RequirePackage{mathtools}
 \RequirePackage{unicode-math}
 \RequirePackage[driver=xetex]{geometry}
 \RequirePackage{graphicx}
@@ -44,9 +43,9 @@
 \RequirePackage{bashful}
 \RequirePackage{xstring}
 \RequirePackage{geometry}
-\RequirePackage{ctex}
+\RequirePackage{ragged2e}
 \RequirePackage{letltxmacro}
-\RequirePackage{fontspec}
+\RequirePackage{verbatim}
 \RequirePackage{titlesec}
 \ifouc@pdf
 \RequirePackage{hyperref}
@@ -136,14 +135,14 @@
 \renewcommand\Huge{\@setfontsize\Huge{26\bp@}{47.67\bp@}}
 
 \linespread{1}\selectfont
-\newcommand\ouc@setchinese{%
+\newcommand\ouc@setchinese{
   \xeCJKResetPunctClass
 }
-\newcommand\ouc@setenglish{%
-  \xeCJKDeclareCharClass{HalfLeft}{"2018, "201C}%
-  \xeCJKDeclareCharClass{HalfRight}{%
-    "00B7, "2019, "201D, "2013, "2014, "2025, "2026, "2E3A%
-  }%
+\newcommand\ouc@setenglish{
+  \xeCJKDeclareCharClass{HalfLeft}{"2018, "201C}
+  \xeCJKDeclareCharClass{HalfRight}{
+    "00B7, "2019, "201D, "2013, "2014, "2025, "2026, "2E3A
+  }
 }
 \ouc@setchinese
 
@@ -158,8 +157,8 @@
   includehead = false,
   includefoot = false,
   vmargin     = 25mm,
-  headheight  = 7mm,
-  headsep     = 3mm,
+  headheight  = 6mm,
+  headsep     = 4mm,
   footskip    = 10mm,
   hmargin     = 25mm
 }
@@ -196,7 +195,7 @@
 \ctexset{
   chapter = {
     name        = {,},
-    format      = \centering\sffamily\fontsize{16\bp@}{26.67\bp@}\selectfont,
+    format      = \centering,
     nameformat  = {},
     number      = \thechapter,
     aftername   = \hspace{\ccwd},
@@ -226,74 +225,41 @@
 \newcommand*{\enkeywords}[1]{
   \def\ouc@enkeywords{#1}
 }
+
 % ===============================================
 % Define Page Style
 
-
-% Abstract
-\NewDocumentCommand\ouc@chapter{o m}{%
-  \IfValueTF{#1}% 检查是否提供了可选参数
+\NewDocumentCommand\ouc@chapter{o m}{
+  \IfValueTF{#1} % 检查是否提供了可选参数
   {
-    \chaptermark{#1}% 页眉使用可选参数
+    \chaptermark{#1} % 页眉使用可选参数
     \makeatletter
     \c@secnumdepth=-1 % 抑制章节编号
     \makeatother
-    \chapter[#1]{#2}% 目录显示 #1，正文显示 #2
+    \chapter[#1]{#2} % 目录显示 #1，正文显示 #2
   }{
-    \chaptermark{#2}% 页眉使用必选参数
+    \chaptermark{#2} % 页眉使用必选参数
     \makeatletter
     \c@secnumdepth=-1 % 抑制章节编号
     \makeatother
-    \chapter{#2}% 
-  }%
+    \chapter{#2}
+  }
 }
 \newcommand\pagenumberingnoreset[1]{\gdef\thepage{\csname @#1\endcsname\c@page}}
 
-
-% Abstract
 \let\standardclearpage\clearpage
-\newenvironment{abstract}{%
-  \clearpage
-  \pagestyle{plain}
-  \pagenumberingnoreset{Roman}
-  \ouc@setchinese
-  \let\clearpage\relax
-  \ouc@chapter[摘要]{摘 ~~~~ 要}
-  \let\clearpage\standardclearpage
-  \vspace{1em}
-}{
-  \noindent\hangindent=4\ccwd\relax
-  \clearpage
-  \pagenumberingnoreset{arabic}
-}
 
-\newenvironment{enabstract}{%
-  \clearpage
-  \pagestyle{plain}
-  \pagenumberingnoreset{Roman}
-  \ouc@setenglish
-  \let\clearpage\relax
-  \ouc@chapter[Abstract]{\zihao{3}\bfseries\textrm{ABSTRACT}}
-  \let\clearpage\standardclearpage
-  \vspace{1em}
-}{
-  \noindent\hangindent=4\ccwd\relax
-  \clearpage
-  \pagenumberingnoreset{arabic}
+% 英文目录格式
+\newcommand\tableofengcontents{
+    \pagestyle{plain}
+    \pagenumberingnoreset{Roman}
+    \renewcommand{\headrulewidth}{0pt} % 取消页眉横线
+    \vspace{24pt}
+    \chapter*{\zihao{3}\textbf{\textrm{Contents}}}
+    \vspace{18pt}
+    \@starttoc{toe}
 }
-
-
-% TOC: 英文目录设置
-\newcommand\engcontentsname{\bfseries\textrm{Contents}}
-\newcommand\tableofengcontents{%
-  \pagestyle{plain}
-  \pagenumberingnoreset{Roman}
-  \renewcommand{\headrulewidth}{0pt} % 取消页眉横线
-  \chapter*{\engcontentsname}%
-  \@starttoc{toe}%
-  \clearpage
-}
-\newcommand\addengcontents[2]{%
+\newcommand\addengcontents[2]{
     \addcontentsline{toe}{#1}{\protect\numberline{\csname the#1\endcsname}#2}}
 \newcommand\addengcontent[2]{\addcontentsline{toe}{#1}{#2}}
 \newcommand\enchapter[1]{\addengcontents{chapter}{#1}}
@@ -301,16 +267,16 @@
 \newcommand\ensubsection[1]{\addengcontents{subsection}{#1}}
 
 
-
-% TOC: 中文目录格式设置
-\renewcommand{\contentsname}{目\quad\quad 录}
-\renewcommand\tableofcontents{%
-  \pagestyle{plain}
-  \pagenumberingnoreset{Roman}
-  \renewcommand{\headrulewidth}{0pt} % 取消页眉横线
-  \chapter*{\contentsname}%
-  \@starttoc{toc}%
-  \clearpage
+% 中文目录格式
+\renewcommand\tableofcontents{
+    \pagestyle{plain}
+    \pagenumberingnoreset{Roman}
+    \renewcommand{\headrulewidth}{0pt} % 取消页眉横线
+    \vspace{24pt}
+    \chapter*{\heiti\zihao{3}目~~~~录}
+    \vspace{18pt}
+    \@starttoc{toc}
+    \clearpage
 }
 
 \newcommand\ouc@leaders{\titlerule*[4\bp@]{\textperiodcentered}}
@@ -328,13 +294,39 @@
 {\contentspush{\thecontentslabel\hspace{\ccwd}}}{}
 { \ouc@leaders\contentspage}
 
+% 中文摘要
+\newenvironment{abstract}{
+  \clearpage
+  \pagestyle{plain}
+  \pagenumberingnoreset{Roman}
+  \ouc@setchinese
+  \let\clearpage\relax
+  \phantomsection\addengcontent{chapter}{Abstract (In Chinese)}
+  \ouc@chapter[摘要]{\heiti\zihao{3}摘~~~~要}
+  \let\clearpage\standardclearpage
+  \setlength{\baselineskip}{20pt}
+}{
+  \noindent\hangindent=4\ccwd\relax
+  \clearpage
+  \pagenumberingnoreset{arabic}
+}
 
-
-
-
-
-
-
+% 英文摘要
+\newenvironment{enabstract}{
+  \clearpage
+  \pagestyle{plain}
+  \pagenumberingnoreset{Roman}
+  \ouc@setenglish
+  \let\clearpage\relax
+  \phantomsection\addengcontent{chapter}{Abstract (In English)}
+  \ouc@chapter[Abstract]{\zihao{3}\textbf{\textrm{ABSTRACT}}}
+  \let\clearpage\standardclearpage
+  \setlength{\baselineskip}{20pt}
+}{
+  \noindent\hangindent=4\ccwd\relax
+  \clearpage
+  \pagenumberingnoreset{arabic}
+}
 
 % ===============================================
 % Main Content Format 
@@ -364,7 +356,7 @@
     section = {
       format      = {\heiti\zihao{4}\justifying\fontspec{Times New Roman}},
       aftername   = \zhspace[0.5],
-      beforeskip  = 24\bp@,
+      beforeskip  = 24pt,
       afterskip   = 6pt,
       fixskip     = false,
     },
@@ -386,12 +378,15 @@
       fixskip     = false,
     },
   }
+  \pagenumbering{arabic} % 开始阿拉伯数字页码编号
   % 正文用宋体小四号（12磅）字，两端对齐，首行缩进2字符，段前0行，段后0行，行距为固定值20磅。
   \songti\zihao{-4}
   \setlength{\parindent}{2\ccwd}
   \setlength{\parskip}{0pt}
   \justifying
   \setlength{\baselineskip}{20pt}
+  \setlength{\floatsep}{20pt}
+  \setlength{\textfloatsep}{20pt}
 }
 
 % Caption Stype
@@ -405,12 +400,32 @@
    labelsep=space
 }
 
+\newcounter{desc}  % 定义一个名为 'desc' 的计数器，用来编号表注和图注
+\setcounter{desc}{1}  % 初始化计数器为 1
+
+\newcommand{\desc}[1]{
+    \refstepcounter{desc}
+    \begin{spacing}{1}
+        \justifying
+        {\zihao{5}\songti\selectfont 注~\thedesc\quad #1}
+    \end{spacing}
+}
+
+% 忽略所有图片
+\newcommand{\disablefigures}{
+    \renewenvironment{figure}[1][]{\comment}{\endcomment}
+    \renewenvironment{figure*}[1][]{\comment}{\endcomment}
+}
+% 忽略所有表格
+\newcommand{\disabletables}{
+    \renewenvironment{table}[1][]{\comment}{\endcomment}
+    \renewenvironment{table*}[1][]{\comment}{\endcomment}
+}
 
 % 自定义图标题格式
 \newcommand{\figurecaption}[2]{%
-    % \vspace{4pt} 
     \caption[#1]{%
-        \centering \quad #1 \\[6pt] % 在中文和英文之间增加6pt的垂直间距
+        \centering #1 \\[6pt] % 在中文和英文之间增加6pt的垂直间距
         \centering \textnormal{Fig.}~\thefigure\quad #2
     }
 }
@@ -418,33 +433,37 @@
 % 自定义表格标题格式
 \newcommand{\tablecaption}[2]{%
     \caption[#1]{%
-        \centering \quad #1 \\[6pt] % 在中文和英文之间增加6pt的垂直间距
+        \centering #1 \\[6pt] % 在中文和英文之间增加6pt的垂直间距
         \centering \textnormal{Table.}~\thetable\quad #2 \\[6pt] 
     }
 }
 
 % 设置中英文标题格式
 \captionsetup[figure]{
-    labelsep=space,   % 中文标题和编号之间空格
-    format=hang,      % 标题悬挂
-    singlelinecheck=false,  % 允许多行显示
     font={small},     % 小号字体
+    labelsep=quad,    % 图序与图题之间空2个半角空格
+    format=plain,     % 无缩进
+    justification=centering, % 居中
+    singlelinecheck=false,  % 允许多行显示
     position=below,   % 标题放在图片下方
-    skip=5pt          % 图形与标题之间的间距
+    skip=6pt, % 段前段后间距 6 磅
+    belowskip=6pt, % 段后间距 6 磅
+    aboveskip=6pt, % 段前间距 6 磅
 }
 
 \captionsetup[table]{
-    labelsep=space,
-    format=hang,
+    labelsep=quad,
+    format=plain,
     singlelinecheck=false,
+    justification=centering,
     font={small},
     position=below,
-    skip=5pt
+    skip=6pt,
+    belowskip=6pt,
+    aboveskip=6pt
 }
 
-
 \renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}}
-\RequirePackage{mathtools}
 \newtagform{test}[]{（}{）}
 \usetagform{test}
 
@@ -510,8 +529,3 @@
   \ouc@setchinese
   \ouc@chapter{作者简介}
 }{\clearpage}
-
-
-
-
-
