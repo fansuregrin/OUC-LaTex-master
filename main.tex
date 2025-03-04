@@ -34,18 +34,18 @@
 \begin{document}
 
 % 封面
-\include{data/cover.tex}
+\include{data/title_page}
 % 学位论文答辩委员会
-\include{data/committee.tex}
+\include{data/committee}
 % 独创性声明
-\include{data/statement.tex}
+\include{data/statement}
 
 % 从中文摘要开始进行罗马数字页码编号
 \pagenumbering{roman}
 % 中文摘要
-\include{data/abstract_ch.tex}
+\include{data/abstract_ch}
 % 英文摘要
-\include{data/abstract_en.tex}
+\include{data/abstract_en}
 
 % 目录
 \tableofcontents % 中文目录
@@ -72,18 +72,16 @@
 % 正文
 \mainmatter
 
-\include{includes/chapter_01} % 第一章：绪论
-\include{includes/chapter_02} % 第二章：水下图像增强理论基础
-\include{includes/chapter_03} % 第三章：基于混合注意力和残差学习的水下图像增强
-\include{includes/chapter_04} % 第四章：基于多尺度特征融合的水下图像增强
-\include{includes/chapter_05} % 第五章：基于视觉状态空间模型和组混合注意力的水下图像增强
-\include{includes/chapter_06} % 第六章：任务导向型水下图像增强
-\include{includes/chapter_07} % 第七章：总结与展望
+\include{contents/chapter_01}
+\include{contents/chapter_02}
+\include{contents/chapter_03}
+\include{contents/chapter_04}
+\include{contents/chapter_05}
 
 % 参考文献
 \phantomsection\addengcontent{chapter}{References}
 \bibliographystyle{oucauthoryear}
-\bibliography{reference}
+\bibliography{cite}
 
 % 学术成果
 \phantomsection\addengcontent{chapter}{Published papers and research results}
