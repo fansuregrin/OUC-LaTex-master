@@ -2,7 +2,7 @@
 % pdf: 便于阅读的电子版，去除掉多余的空白页，加入超链接等
 % print：打印版本，添加空白页，便于双面打印，禁用超链接
 
-\title{北大西洋亚极地区域多尺度海洋过程能量交换}
+\settitle{北大西洋亚极地区域多尺度海洋过程能量交换}{Energy Exchange among Multi-scale Processes in the Subpolar North Atlantic}
 
 \usepackage{booktabs}
 \usepackage{multicol}
@@ -29,8 +29,20 @@
 
 \begin{document}
 
-% 封面
-\include{data/title_page}
+% 生成题名页
+% 请按需更改
+\settitlepage{
+    clc = TP3,            % 中国图书馆分类法（CLC）分类号
+    udc = 004.93,         % 通用十进制分类法（UDC）分类号
+    id  = 21220000001,    % 学号
+    author = 张三,         % 姓名
+    advisor = 某某某教授,   % 指导教师
+    degreetype = 学术学位,  % 学位类型
+    major = 计算机科学与技术, % 专业名称
+    researchfield = 人工智能, % 研究方向
+    institution = 中国海洋大学 % 授予学位单位
+}
+
 % 学位论文答辩委员会
 \include{data/committee}
 % 独创性声明

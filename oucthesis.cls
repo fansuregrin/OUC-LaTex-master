@@ -48,6 +48,8 @@
 \RequirePackage{verbatim}
 \RequirePackage{titlesec}
 \RequirePackage{xeCJK}
+\RequirePackage{xparse}
+\RequirePackage{keyval}
 \ifouc@pdf
 \RequirePackage{hyperref}
 \else
@@ -57,6 +59,21 @@
 \setmainfont{Times New Roman}
 \setCJKfamilyfont{zhsong}[AutoFakeBold = {2.17}]{SimSun}
 \renewcommand{\songti}{\CJKfamily{zhsong}}
+
+% 中英文论文题目
+% 示例：\title{中文题目}{英文题目}
+\newcommand{\zhtitle}{}
+\newcommand{\entitle}{}
+\newcommand{\settitle}[2]{
+  \title{#1}
+  \gdef\zhtitle{#1}
+  \gdef\entitle{#2}
+}
+
+
+% 题名页
+\input{data/title_page.cls}
+
 
 % ===============================================
 % Changable parameters
@@ -90,9 +107,9 @@
 % ===============================================
 % Custom Command
 
-\renewenvironment{titlepage}{%
+\renewenvironment{titlepage}{
   \clearpage
-  \thispagestyle{empty}%
+  \thispagestyle{empty} % 无页眉、无页脚
 }{\clearpage}
 
 \newcommand\blankpage{%
@@ -214,23 +231,23 @@
 % ===============================================
 % Define Information
 
-\newcommand*{\entitle}[1]{
-  \def\ouc@entitle{#1}
-}
-\newcommand*{\advisor}[1]{
-  \def\ouc@advisor{#1}
-}
-\newcommand*{\mythanks}[1]{
-  \def\ouc@mythanks{#1}
-}
+% \newcommand*{\entitle}[1]{
+%   \def\ouc@entitle{#1}
+% }
+% \newcommand*{\advisor}[1]{
+%   \def\ouc@advisor{#1}
+% }
+% \newcommand*{\mythanks}[1]{
+%   \def\ouc@mythanks{#1}
+% }
 
-\newcommand*{\keywords}[1]{
-  \def\ouc@keywords{#1}
-}
+% \newcommand*{\keywords}[1]{
+%   \def\ouc@keywords{#1}
+% }
 
-\newcommand*{\enkeywords}[1]{
-  \def\ouc@enkeywords{#1}
-}
+% \newcommand*{\enkeywords}[1]{
+%   \def\ouc@enkeywords{#1}
+% }
 
 % ===============================================
 % Define Page Style
