@@ -310,6 +310,7 @@
   \phantomsection\addengcontent{chapter}{Abstract (In Chinese)}
   \ouc@chapter[摘要]{\heiti\zihao{3}摘~~~~要}
   \let\clearpage\standardclearpage
+  \songti\zihao{-4}
   \setlength{\baselineskip}{20pt}
 }{
   \noindent\hangindent=4\ccwd\relax
