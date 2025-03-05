@@ -47,10 +47,16 @@
 \RequirePackage{letltxmacro}
 \RequirePackage{verbatim}
 \RequirePackage{titlesec}
+\RequirePackage{xeCJK}
 \ifouc@pdf
 \RequirePackage{hyperref}
 \else
 \fi
+
+\setCJKmainfont{SimSun}
+\setmainfont{Times New Roman}
+\setCJKfamilyfont{zhsong}[AutoFakeBold = {2.17}]{SimSun}
+\renewcommand{\songti}{\CJKfamily{zhsong}}
 
 % ===============================================
 % Changable parameters
