@@ -274,6 +274,7 @@
 
 % 英文目录格式
 \newcommand\tableofengcontents{
+    \clearpage
     \pagestyle{plain}
     \pagenumberingnoreset{Roman}
     \renewcommand{\headrulewidth}{0pt} % 取消页眉横线
@@ -292,6 +293,7 @@
 
 % 中文目录格式
 \renewcommand\tableofcontents{
+    \clearpage
     \pagestyle{plain}
     \pagenumberingnoreset{Roman}
     \renewcommand{\headrulewidth}{0pt} % 取消页眉横线
@@ -299,7 +301,6 @@
     \chapter*{\heiti\zihao{3}目~~~~录}
     \vspace{18pt}
     \@starttoc{toc}
-    \clearpage
 }
 
 \newcommand\ouc@leaders{\titlerule*[4\bp@]{\textperiodcentered}}
@@ -350,6 +351,38 @@
   \noindent\hangindent=4\ccwd\relax
   \clearpage
   \pagenumberingnoreset{arabic}
+}
+
+% 插图清单
+\newcommand{\setlistoffigures}{
+  \begingroup
+    \newcommand{\name}{插图清单}
+    \renewcommand{\numberline}[1]{图~##1\hspace*{1em}}
+    \renewcommand{\listfigurename}{\heiti\zihao{3}\name}
+    \begin{center}
+      \clearpage
+      \phantomsection
+      \addengcontent{chapter}{Figure list}
+      \phantomsection
+      \addcontentsline{toc}{chapter}{插图清单}
+      \listoffigures
+    \end{center}
+  \endgroup
+}
+
+% 表格清单
+\newcommand{\setlistoftables}{
+  \begingroup
+    \newcommand{\name}{表格清单}
+    \renewcommand{\numberline}[1]{表~##1\hspace*{1em}}
+    \renewcommand{\listtablename}{\heiti\zihao{3}\name}
+    \begin{center}
+        \clearpage
+        \phantomsection\addcontentsline{toc}{chapter}{表格清单}
+        \phantomsection\addengcontent{chapter}{Table list}
+        {\listoftables}
+    \end{center}
+  \endgroup
 }
 
 % ===============================================

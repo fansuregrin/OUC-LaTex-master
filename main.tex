@@ -59,23 +59,11 @@
 \tableofcontents % 中文目录
 \tableofengcontents % 英文目录
 
-% 插图目录
-\renewcommand{\numberline}[1]{图~#1\hspace*{1em}}
-\renewcommand{\listfigurename}{\heiti\zihao{3}插图清单}
-\begin{center}
-    \phantomsection\addcontentsline{toc}{chapter}{插图清单}
-    \phantomsection\addengcontent{chapter}{Figure list}
-    {\listoffigures}
-\end{center}
+% 插图清单
+\setlistoffigures
 
-% 表格目录
-\renewcommand{\numberline}[1]{表~#1\hspace*{1em}}
-\renewcommand{\listtablename}{\heiti\zihao{3}表格清单}
-\begin{center}
-    \phantomsection\addcontentsline{toc}{chapter}{表格清单}
-    \phantomsection\addengcontent{chapter}{Table list}
-    {\listoftables}
-\end{center}
+% 表格清单
+\setlistoftables
 
 % 正文
 \mainmatter
