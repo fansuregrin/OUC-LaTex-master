@@ -14,9 +14,8 @@
 \ExecuteOptions{print}
 \ProcessOptions\relax
 
-\PassOptionsToClass{scheme=chinese}{ctexbook}
 \PassOptionsToPackage{quiet}{xeCJK}
-\LoadClass[UTF8,a4paper,zihao=-4,twoside]{ctexbook}[2017/04/01]
+\LoadClass[UTF8,a4paper,zihao=-4]{ctexbook}
 \PassOptionsToClass{scheme=chinese}{ctexbook}
 
 % ===============================================
@@ -107,10 +106,10 @@
   \thispagestyle{empty} % 无页眉、无页脚
 }{\clearpage}
 
-\newcommand\blankpage{%
+\newcommand\blankpage{
   \null
-  \thispagestyle{empty}%
-  \addtocounter{page}{-1}%
+  \thispagestyle{empty}
+  \addtocounter{page}{-1}
   \newpage
 }
 
@@ -129,7 +128,7 @@
   \belowdisplayskip \abovedisplayskip
   \let\@listi\@listI
 }
-\normalsize
+% \normalsize
 \renewcommand\small{%
   \@setfontsize\small{10.5\bp@}{19.25\bp@}%
   \abovedisplayskip 10.5\bp@ \@plus3\bp@ \@minus6\bp@
@@ -182,7 +181,6 @@
 }
 \pagestyle{fancy}
 \let\sectionmark\@gobble
-\renewcommand\headrulewidth{0.5\p@}
 
 % ===============================================
 % Header and Footer Format
@@ -207,8 +205,6 @@
 }
 
 
-% ===============================================
-% Pre Content Format 
 \ctexset{
   chapter = {
     name        = {,},
@@ -221,9 +217,6 @@
     fixskip     = true,
   },
 }
-
-% ===============================================
-% Define Information
 
 % \newcommand*{\entitle}[1]{
 %   \def\ouc@entitle{#1}
@@ -243,9 +236,6 @@
 %   \def\ouc@enkeywords{#1}
 % }
 
-% ===============================================
-% Define Page Style
-
 \NewDocumentCommand\ouc@chapter{o m}{
   \IfValueTF{#1} % 检查是否提供了可选参数
   {
@@ -262,7 +252,11 @@
     \chapter{#2}
   }
 }
-\newcommand\pagenumberingnoreset[1]{\gdef\thepage{\csname @#1\endcsname\c@page}}
+
+% 调整页码格式，但不重置页码
+\newcommand\pagenumberingnoreset[1]{
+  \gdef\thepage{\csname @#1\endcsname\c@page}
+}
 
 \let\standardclearpage\clearpage
 
@@ -382,14 +376,14 @@
 % ===============================================
 % Main Content Format 
 
-\renewcommand\chapter{%
+\renewcommand\chapter{
   \if@openright\cleardoublepage\else\clearpage\fi
-  \global\@topnum\z@
-  \@afterindenttrue
+  \global\@topnum\z@ % 禁止新章节页的顶部出现浮动体
+  \@afterindenttrue  % 章节后的第一段要缩进
   \secdef\@chapter\@schapter
 }
 \renewcommand\mainmatter{
-  \clearpage
+  \cleardoublepage
   \pagestyle{title}
   \setcounter{page}{1}
   \ctexset{
