@@ -458,7 +458,7 @@
 }
 
 \newcounter{desc}  % 定义一个名为 'desc' 的计数器，用来编号表注和图注
-\setcounter{desc}{1}  % 初始化计数器为 1
+\setcounter{desc}{0}  % 初始化计数器为 0
 
 \newcommand{\desc}[1]{
     \refstepcounter{desc}
