@@ -97,12 +97,13 @@
   \fi
 }
 
-% ===============================================
-% Word Count
-\newcommand{\wordcount}[0]{%
-	\immediate\write18{texcount -1 -sum main.tex > words.count }%
-	\input{words.count}%
-}
+% 字数统计
+\immediate\write18{texcount -1 -sum -char -merge main.tex > words.count}
+\newread\wordfile
+\openin\wordfile=words.count
+\read\wordfile to \worddata
+\closein\wordfile
+\newcommand{\ouc@wordcount}{\worddata}
 
 % ===============================================
 % Custom Command
@@ -190,26 +191,25 @@
 \renewcommand\headrulewidth{0.5\p@}
 
 % ===============================================
-% Header Format
-\newcommand\ouc@wordcount{\wordcount}
+% Header and Footer Format
 
+% 页眉采用宋体五号字（10.5pt）居中书写，页眉底下划一条线
 \newcommand\ouc@hf@font{\fontsize{10.5\bp@}{12\bp@}\selectfont}
-\newcommand\ouc@header{\@title}
-\fancypagestyle{title}{%
-  \fancyhf{}%
+\fancypagestyle{title}{
+  \fancyhf{} % 清除当前的页眉和页脚设置
   \fancyhead[CO]{\ouc@hf@font 中国海洋大学硕（博）士学位论文} % 奇数页页眉
-  \fancyhead[CE]{\ouc@hf@font\ouc@header} % 偶数页页眉
-  \fancyfoot[C]{\ouc@hf@font\thepage}%
+  \fancyhead[CE]{\ouc@hf@font\@title}  % 偶数页页眉
+  \fancyfoot[C]{\ouc@hf@font\thepage}  % 页码
   \renewcommand{\headrulewidth}{0.4pt} % 添加页眉下划线
   \ifouc@count
-    \fancyfoot[R]{\color{gray}\ouc@hf@font \ouc@wordcount}%
+    \fancyfoot[R]{\color{gray}\ouc@hf@font \ouc@wordcount words} % 右下角显示全文字数
   \fi
 }
-\fancypagestyle{plain}{%
-  \fancyhf{}%
-  \renewcommand{\headrulewidth}{0pt}
-  \fancyhead[C]{}
-  \fancyfoot[C]{\ouc@hf@font\thepage}%
+\fancypagestyle{plain}{
+  \fancyhf{} % 清除当前的页眉和页脚设置
+  \renewcommand{\headrulewidth}{0pt} % 无页眉线
+  \fancyhead[C]{} % 页眉内容为空
+  \fancyfoot[C]{\ouc@hf@font\thepage} % 显示页码
 }
 
 

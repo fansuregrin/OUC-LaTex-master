@@ -10,3 +10,5 @@
 **/*.bbl
 **/*.blg
 **/.vscode/
+!.vscode/settings.json
+words.count
