@@ -5,10 +5,6 @@
 \DeclareOption{print}{\ouc@pdffalse}
 \DeclareOption{pdf}{\ouc@pdftrue}
 
-\newif\ifouc@enmac
-\ouc@enmacfalse
-\DeclareOption{enmac}{\ouc@enmactrue}
-
 \newif\ifouc@count
 \ouc@countfalse
 \DeclareOption{count}{\ouc@counttrue}
@@ -22,6 +18,7 @@
 \PassOptionsToPackage{quiet}{xeCJK}
 \LoadClass[UTF8,a4paper,zihao=-4,twoside]{ctexbook}[2017/04/01]
 \PassOptionsToClass{scheme=chinese}{ctexbook}
+
 % ===============================================
 % Required Package
 \RequirePackage{amsmath}
@@ -50,10 +47,7 @@
 \RequirePackage{xeCJK}
 \RequirePackage{xparse}
 \RequirePackage{keyval}
-\ifouc@pdf
 \RequirePackage{hyperref}
-\else
-\fi
 
 \setCJKmainfont{SimSun}
 \setmainfont{Times New Roman}
