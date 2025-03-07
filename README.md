@@ -5,6 +5,8 @@
 基础上，
 根据《中国海洋大学研究生学位论文书写范例（理工农医类）》修改。
 
+![demo](./img/demo.png)
+
 原 README 请见 [here](./OLDREADME.md)。
 
 ## 鸣谢
