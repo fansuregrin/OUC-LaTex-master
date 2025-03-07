@@ -1,12 +1,13 @@
 % 学位论文答辩委员会页
 % 提交存档论文时，须先打印此页，由答辩委员会成员签字后，扫描制作成电子文档，在电子版论文中插入此扫描页。
-\begin{titlepage}
+
+\newcommand{\setcommittee}{
+    \clearpage
+    \thispagestyle{empty}
 
     % 标题部分用黑体三号字，居中无缩进，段前24磅，段后18磅，1.5倍行距。
     \begin{center}
-        \setlength{\parskip}{24pt}
         \zihao{3}\heiti 学位论文答辩委员会
-        \setlength{\parskip}{18pt}
     \end{center}
     
     % 表格内容采用宋体小四号字(英文、数字、字母的字体为Times New Roman)，
@@ -39,6 +40,4 @@
             \hline
         \end{tabular}
     \end{table}
-    
-    \end{titlepage}
-    
+}  

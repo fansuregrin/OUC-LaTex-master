@@ -43,9 +43,9 @@
 }
 
 % 学位论文答辩委员会
-\include{data/committee}
-% 独创性声明
-\include{data/statement}
+\setcommittee
+% 独创声明和版权使用授权书
+\setstatement
 
 % 从中文摘要开始进行罗马数字页码编号
 \pagenumbering{roman}
@@ -74,20 +74,17 @@
 \include{contents/chapter_05}
 
 % 参考文献
-\phantomsection\addengcontent{chapter}{References}
 \bibliographystyle{oucauthoryear}
 \bibliography{cite}
 
 % 学术成果
-\phantomsection\addengcontent{chapter}{Published papers and research results}
 \include{contents/achievement}
 
 % 致谢
-\phantomsection\addengcontent{chapter}{Acknowledgements}
+
 \include{contents/acknowledgement}
 
 % 作者简介
-\phantomsection\addengcontent{chapter}{Resume}
 \include{contents/profile}
 
 \end{document}

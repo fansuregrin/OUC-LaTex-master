@@ -17,6 +17,11 @@
 \PassOptionsToPackage{quiet}{xeCJK}
 \LoadClass[UTF8,a4paper,zihao=-4]{ctexbook}
 \PassOptionsToClass{scheme=chinese}{ctexbook}
+\ifouc@pdf
+  \PassOptionsToClass{oneside}{ctexbook}
+\else
+  \PassOptionsToClass{twoside}{ctexbook}
+\fi
 
 % ===============================================
 % Required Package
@@ -66,7 +71,10 @@
 
 % 题名页
 \input{data/title_page.cls}
-
+% 学位论文答辩委员会页
+\input{data/committee.cls}
+% 独创声明和版权使用授权书
+\input{data/statement.cls}
 
 % ===============================================
 % Changable parameters
@@ -365,8 +373,8 @@
   \secdef\@chapter\@schapter
 }
 \renewcommand\mainmatter{
+  \clearpage
   \pagestyle{title}
-  \setcounter{page}{1}
   \ctexset{
     % 章标题用黑体三号（16磅）字，居中无缩进，段前24磅，段后18磅，单倍行距。
     % 题序和标题之间空1个半角空格。
@@ -520,14 +528,17 @@
 \renewcommand\bibsection{
   \clearpage
   \makeafter
+  \phantomsection\addengcontent{chapter}{References}
   \ouc@chapter{\bibname}
+  \songti\zihao{5}
   \setlength{\baselineskip}{20pt}
 }
 
-\newenvironment{ackonwlegmentback}{%
+\newenvironment{ackonwlegmentback}{
   \clearpage
   \makeafter
   \ouc@setchinese
+  \phantomsection\addengcontent{chapter}{Acknowledgements}
   \ouc@chapter[致谢]{致\zhspace[2]谢}
 }{
   \clearpage
@@ -546,13 +557,19 @@
   \clearpage
   \makeafter
   \ouc@setchinese
+  \phantomsection\addengcontent{chapter}
+    {Published papers and research results while pursuing the degree}
   \ouc@chapter{攻读硕士学位期间取得的研究成果}
+  \songti\zihao{-4}
   \setlength{\baselineskip}{20pt}
 }{\clearpage}
 
-\newenvironment{profile}{%
+\newenvironment{profile}{
   \clearpage
   \makeafter
   \ouc@setchinese
+  \phantomsection\addengcontent{chapter}{Resume}
   \ouc@chapter{作者简介}
+  \songti\zihao{-4}
+  \setlength{\baselineskip}{20pt}
 }{\clearpage}
