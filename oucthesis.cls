@@ -300,7 +300,8 @@
 \newenvironment{abstract}{
   \clearpage
   \pagestyle{plain}
-  \pagenumberingnoreset{Roman}
+  % 从中文摘要开始进行罗马数字页码编号
+  \pagenumbering{Roman}
   \ouc@setchinese
   \let\clearpage\relax
   \phantomsection\addengcontent{chapter}{Abstract (In Chinese)}
