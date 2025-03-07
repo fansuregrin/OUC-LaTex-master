@@ -3,7 +3,6 @@
 **/*.lot
 **/*.toc
 **/*.toe
-**/*.gz
 **/*.pdf
 **/*.log
 **/*.out
@@ -12,3 +11,4 @@
 **/.vscode/
 !.vscode/settings.json
 words.count
+**/*.synctex*
