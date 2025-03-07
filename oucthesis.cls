@@ -512,31 +512,20 @@
 \newtagform{test}[]{（}{）}
 \usetagform{test}
 
-% ===============================================
-% Tail Content Format 
+
+% 正文结束后的章节标题格式
 \newcommand\makeafter{
-  \clearpage
   \ctexset{
     chapter = {
       name        = {,},
-      format      = \centering\sffamily\fontsize{14\bp@}{25.67\bp@}\selectfont,
+      format      = {\centering\heiti\zihao{3}},
       nameformat  = {},
       number      = \thechapter,
       aftername   = \hspace{\ccwd},
-      beforeskip  = 24\bp@,
-      afterskip   = 18\bp@,
-      fixskip     = true,
-    },
-    section = {
-      name        = {,},
-      format      = \centering\sffamily\bfseries\normalsize\selectfont,
-      nameformat  = {},
-      number      = \thechapter,
-      aftername   = \hspace{\ccwd},
-      beforeskip  = 24\bp@,
-      afterskip   = 18\bp@,
-      fixskip     = true,
-    },
+      beforeskip  = 24pt,
+      afterskip   = 18pt,
+      fixskip     = true
+    }
   }
 }
 
@@ -548,6 +537,7 @@
 \renewcommand\@biblabel[1]{[#1]\hfill}
 
 \renewcommand\bibsection{
+  \clearpage
   \makeafter
   \ouc@chapter{\bibname}
   \setlength{\baselineskip}{20pt}
@@ -562,11 +552,21 @@
   \clearpage
 }
 
-\newenvironment{achievement}{%
+\newcounter{achievesecno}
+\setcounter{achievesecno}{0}
+\newcommand{\achievetitle}[1]{
+  \refstepcounter{achievesecno}
+  {
+    \heiti\zihao{4}\noindent
+    \chinese{achievesecno}、#1
+  }
+}
+\newenvironment{achievement}{
   \clearpage
   \makeafter
   \ouc@setchinese
   \ouc@chapter{攻读硕士学位期间取得的研究成果}
+  \setlength{\baselineskip}{20pt}
 }{\clearpage}
 
 \newenvironment{profile}{%
