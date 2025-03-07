@@ -37,29 +37,31 @@
     % 从主表（网页灰色横条上的0-9数字）中，根据论文内容选择相应数字开头的分类号，
     % 经逐级查询后填写论文的 UDC 号。一般填写至三级类目。
     \begin{spacing}{0}
-        \noindent
-        {\zihao{4}\textbf{\songti 分类号：}} {\zihao{-4}\textrm \tp@clc} \hfill 
-        {\zihao{4}\textbf{\songti 学校代码：}} {\zihao{-4}\textrm \tp@schoolcode\phantom{000000}} \\ 
-        {\zihao{4}\textbf{\textrm UDC：}} \tp@udc \hfill 
-        {\zihao{4}\textbf{\songti 学 ~~~~~~ 号：}} {\zihao{-4}\textrm \tp@id}
+      \noindent\songti
+      {\zihao{4}\textbf{分类号：}} 
+      {\zihao{-4} \tp@clc} \hfill 
+      {\zihao{4}\textbf{学校代码：}} 
+      {\zihao{-4} \tp@schoolcode\phantom{000000}} \\ 
+      {\zihao{4}\textbf{UDC：}} 
+      {\zihao{-4} \tp@udc} \hfill 
+      {\zihao{4}\textbf{学~~~~~~号：}} 
+      {\zihao{-4} \tp@id}
     \end{spacing}
-    \vskip50pt
-    \par\vskip20pt
+ 
+    \par\vfill
     
     \begin{center}
-    
       % 中文标题，黑体二号字
-      \begin{spacing}{1.25}
-        \centering{\zihao{2}\heiti \zhtitle}
-        \par\vskip30pt
+      {\zihao{2}\heiti \zhtitle}
+      
+      \par\vskip30pt
         
-        % 英文标题
-        % 1.英文题目第一个单词首字母大写。
-        % 2.实词（名词、动词、代词、形容词、副词等）首字母大写，虚词（介词、冠词、连词等）首字母小写。
-        % 3.超过5个字母的虚词（between、without等）首字母应该大写。
-        % 4.使用 Times New Roman 二号字加粗，题目太长时可用小二号字.
-        {\zihao{-2}\bfseries\textrm \entitle}
-      \end{spacing}
+      % 英文标题
+      % 1.英文题目第一个单词首字母大写。
+      % 2.实词（名词、动词、代词、形容词、副词等）首字母大写，虚词（介词、冠词、连词等）首字母小写。
+      % 3.超过5个字母的虚词（between、without等）首字母应该大写。
+      % 4.使用 Times New Roman 二号字加粗，题目太长时可用小二号字.
+      {\zihao{-2}\bfseries\textrm \entitle}
     
       % 冒号左侧用黑体四号字，冒号右侧用宋体四号字，1.5倍行距。
       \par\vfill
