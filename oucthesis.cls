@@ -394,7 +394,7 @@
       aftername   = \zhspace[0.5],
       beforeskip  = 24pt,
       afterskip   = 18pt,
-      fixskip     = false,
+      fixskip     = true,
     },
     % 二级标题用黑体四号（14磅）字，两端对齐，无缩进，段前24磅，段后6磅，单倍行距。
     % 题序与标题之间空1个半角空格。
@@ -403,7 +403,7 @@
       aftername   = \zhspace[0.5],
       beforeskip  = 24pt,
       afterskip   = 6pt,
-      fixskip     = false,
+      fixskip     = true,
     },
     % 三级标题用黑体小四号（12磅）字，两端对齐，无缩进，段前12磅，段后6磅，单倍行距。
     % 题序与标题之间空 1 个半角空格
@@ -412,7 +412,7 @@
       aftername   = \zhspace[0.5],
       beforeskip  = 12pt,
       afterskip   = 6pt,
-      fixskip     = false,
+      fixskip     = true,
     },
     % 撰写规范中为指定四级标题格式，暂定为黑体 11 磅字，两端对齐，无缩进，段前12磅，段后6磅，单倍行距。
     subsubsection = {
@@ -420,7 +420,7 @@
       aftername   = \zhspace[0.5],
       beforeskip  = 12pt,
       afterskip   = 6pt,
-      fixskip     = false,
+      fixskip     = true,
     },
   }
   \pagenumbering{arabic} % 开始阿拉伯数字页码编号
