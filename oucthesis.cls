@@ -151,7 +151,7 @@
 \renewcommand\huge{\@setfontsize\huge{24\bp@}{44\bp@}}
 \renewcommand\Huge{\@setfontsize\Huge{26\bp@}{47.67\bp@}}
 
-\linespread{1}\selectfont
+% \linespread{1}\selectfont
 \newcommand\ouc@setchinese{
   \xeCJKResetPunctClass
 }
@@ -269,7 +269,7 @@
     \vspace{24pt}
     \chapter*{\zihao{3}\textbf{\textrm{Contents}}}
     \vspace{18pt}
-    \@starttoc{toe}
+    {\linespread{1}\@starttoc{toe}}
 }
 \newcommand\addengcontents[2]{
     \addcontentsline{toe}{#1}{\protect\numberline{\csname the#1\endcsname}#2}}
@@ -286,23 +286,23 @@
     \pagenumberingnoreset{Roman}
     \renewcommand{\headrulewidth}{0pt} % 取消页眉横线
     \vspace{24pt}
-    \chapter*{\heiti\zihao{3}目~~~~录}
+    \chapter*{\heiti\zihao{3}目\zhspace[2]录}
     \vspace{18pt}
-    \@starttoc{toc}
+    {\linespread{1}\@starttoc{toc}}
 }
 
 \newcommand\ouc@leaders{\titlerule*[4\bp@]{\textperiodcentered}}
 
 \titlecontents{chapter}
-[\z@]{\fontsize{14\bp@}{25.67\bp@}\selectfont}
+[\z@]{\vspace*{6pt}\songti\zihao{4}}
 {\contentspush{\thecontentslabel\unskip\hspace{\ccwd}}}{}
 {\unskip\hspace{\ccwd}\ouc@leaders\contentspage}
 \titlecontents{section}
-[\ccwd]{\normalsize}
+[2\ccwd]{\vspace*{6pt}\songti\zihao{-4}}
 {\contentspush{\thecontentslabel\hspace{\ccwd}}}{}
 { \ouc@leaders\contentspage}
 \titlecontents{subsection}
-[2\ccwd]{\normalsize}
+[4\ccwd]{\vspace*{6pt}\songti\zihao{-4}}
 {\contentspush{\thecontentslabel\hspace{\ccwd}}}{}
 { \ouc@leaders\contentspage}
 
@@ -314,7 +314,7 @@
   \ouc@setchinese
   \let\clearpage\relax
   \phantomsection\addengcontent{chapter}{Abstract (In Chinese)}
-  \ouc@chapter[摘要]{\heiti\zihao{3}摘~~~~要}
+  \ouc@chapter[摘要]{\heiti\zihao{3}摘\zhspace[2]要}
   \let\clearpage\standardclearpage
   \songti\zihao{-4}
   \setlength{\baselineskip}{20pt}
@@ -353,7 +353,7 @@
       \addengcontent{chapter}{Figure list}
       \phantomsection
       \addcontentsline{toc}{chapter}{插图清单}
-      \listoffigures
+      {\setlength{\baselineskip}{20pt}\listoffigures}
     \end{center}
   \endgroup
 }
@@ -368,7 +368,7 @@
         \clearpage
         \phantomsection\addcontentsline{toc}{chapter}{表格清单}
         \phantomsection\addengcontent{chapter}{Table list}
-        {\listoftables}
+        {\setlength{\baselineskip}{20pt}\listoftables}
     \end{center}
   \endgroup
 }
@@ -542,14 +542,15 @@
 
 \newcommand\bibstyle@super{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
 \citestyle{super}
-\renewcommand\bibfont{\fontsize{10.5\bp@}{20\bp@}\selectfont}
+\renewcommand\bibfont{\songti\zihao{5}}
 \setlength{\bibsep}{0\p@ \@plus.2\p@}
 \setlength{\bibhang}{2\ccwd}
 \renewcommand\@biblabel[1]{[#1]\hfill}
 
-\renewcommand\bibsection{%
+\renewcommand\bibsection{
   \makeafter
-  \ouc@chapter{\bibname}%
+  \ouc@chapter{\bibname}
+  \setlength{\baselineskip}{20pt}
 }
 
 \newenvironment{ackonwlegmentback}{%
