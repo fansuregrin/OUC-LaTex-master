@@ -218,24 +218,6 @@
   },
 }
 
-% \newcommand*{\entitle}[1]{
-%   \def\ouc@entitle{#1}
-% }
-% \newcommand*{\advisor}[1]{
-%   \def\ouc@advisor{#1}
-% }
-% \newcommand*{\mythanks}[1]{
-%   \def\ouc@mythanks{#1}
-% }
-
-% \newcommand*{\keywords}[1]{
-%   \def\ouc@keywords{#1}
-% }
-
-% \newcommand*{\enkeywords}[1]{
-%   \def\ouc@enkeywords{#1}
-% }
-
 \NewDocumentCommand\ouc@chapter{o m}{
   \IfValueTF{#1} % 检查是否提供了可选参数
   {
@@ -262,17 +244,17 @@
 
 % 英文目录格式
 \newcommand\tableofengcontents{
-    \clearpage
-    \pagestyle{plain}
-    \pagenumberingnoreset{Roman}
-    \renewcommand{\headrulewidth}{0pt} % 取消页眉横线
-    \vspace{24pt}
-    \chapter*{\zihao{3}\textbf{\textrm{Contents}}}
-    \vspace{18pt}
-    {\linespread{1}\@starttoc{toe}}
+  \clearpage
+  \pagestyle{plain}
+  \pagenumberingnoreset{Roman}
+  \renewcommand{\headrulewidth}{0pt} % 取消页眉横线
+  \vspace{24pt}
+  \chapter*{\zihao{3}\textbf{\textrm{Contents}}}
+  \vspace{18pt}
+  {\linespread{1}\@starttoc{toe}}
 }
 \newcommand\addengcontents[2]{
-    \addcontentsline{toe}{#1}{\protect\numberline{\csname the#1\endcsname}#2}}
+  \addcontentsline{toe}{#1}{\protect\numberline{\csname the#1\endcsname}#2}}
 \newcommand\addengcontent[2]{\addcontentsline{toe}{#1}{#2}}
 \newcommand\enchapter[1]{\addengcontents{chapter}{#1}}
 \newcommand\ensection[1]{\addengcontents{section}{#1}}
@@ -281,14 +263,14 @@
 
 % 中文目录格式
 \renewcommand\tableofcontents{
-    \clearpage
-    \pagestyle{plain}
-    \pagenumberingnoreset{Roman}
-    \renewcommand{\headrulewidth}{0pt} % 取消页眉横线
-    \vspace{24pt}
-    \chapter*{\heiti\zihao{3}目\zhspace[2]录}
-    \vspace{18pt}
-    {\linespread{1}\@starttoc{toc}}
+  \clearpage
+  \pagestyle{plain}
+  \pagenumberingnoreset{Roman}
+  \renewcommand{\headrulewidth}{0pt} % 取消页眉横线
+  \vspace{24pt}
+  \chapter*{\heiti\zihao{3}目\zhspace[2]录}
+  \vspace{18pt}
+  {\linespread{1}\@starttoc{toc}}
 }
 
 \newcommand\ouc@leaders{\titlerule*[4\bp@]{\textperiodcentered}}
@@ -383,7 +365,6 @@
   \secdef\@chapter\@schapter
 }
 \renewcommand\mainmatter{
-  \cleardoublepage
   \pagestyle{title}
   \setcounter{page}{1}
   \ctexset{
@@ -449,63 +430,63 @@
 \setcounter{desc}{0}  % 初始化计数器为 0
 
 \newcommand{\desc}[1]{
-    \refstepcounter{desc}
-    \begin{spacing}{1}
-        \justifying
-        {\zihao{5}\songti\selectfont 注~\thedesc\quad #1}
-    \end{spacing}
+  \refstepcounter{desc}
+  \begin{spacing}{1}
+    \justifying
+    {\zihao{5}\songti\selectfont 注~\thedesc\quad #1}
+  \end{spacing}
 }
 
 % 忽略所有图片
 \newcommand{\disablefigures}{
-    \renewenvironment{figure}[1][]{\comment}{\endcomment}
-    \renewenvironment{figure*}[1][]{\comment}{\endcomment}
+  \renewenvironment{figure}[1][]{\comment}{\endcomment}
+  \renewenvironment{figure*}[1][]{\comment}{\endcomment}
 }
 % 忽略所有表格
 \newcommand{\disabletables}{
-    \renewenvironment{table}[1][]{\comment}{\endcomment}
-    \renewenvironment{table*}[1][]{\comment}{\endcomment}
+  \renewenvironment{table}[1][]{\comment}{\endcomment}
+  \renewenvironment{table*}[1][]{\comment}{\endcomment}
 }
 
 % 自定义图标题格式
 \newcommand{\figurecaption}[2]{%
-    \caption[#1]{%
-        \centering #1 \\[6pt] % 在中文和英文之间增加6pt的垂直间距
-        \centering \textnormal{Fig.}~\thefigure\quad #2
-    }
+  \caption[#1]{%
+    \centering #1 \\[6pt] % 在中文和英文之间增加6pt的垂直间距
+    \centering \textnormal{Fig.}~\thefigure\quad #2
+  }
 }
 
 % 自定义表格标题格式
 \newcommand{\tablecaption}[2]{%
-    \caption[#1]{%
-        \centering #1 \\[6pt] % 在中文和英文之间增加6pt的垂直间距
-        \centering \textnormal{Table.}~\thetable\quad #2 \\[6pt] 
-    }
+  \caption[#1]{%
+    \centering #1 \\[6pt] % 在中文和英文之间增加6pt的垂直间距
+    \centering \textnormal{Table.}~\thetable\quad #2 \\[6pt] 
+  }
 }
 
 % 设置中英文标题格式
 \captionsetup[figure]{
-    font={small},     % 小号字体
-    labelsep=quad,    % 图序与图题之间空2个半角空格
-    format=plain,     % 无缩进
-    justification=centering, % 居中
-    singlelinecheck=false,  % 允许多行显示
-    position=below,   % 标题放在图片下方
-    skip=6pt, % 段前段后间距 6 磅
-    belowskip=6pt, % 段后间距 6 磅
-    aboveskip=6pt, % 段前间距 6 磅
+  font={small},     % 小号字体
+  labelsep=quad,    % 图序与图题之间空2个半角空格
+  format=plain,     % 无缩进
+  justification=centering, % 居中
+  singlelinecheck=false,  % 允许多行显示
+  position=below,   % 标题放在图片下方
+  skip=6pt, % 段前段后间距 6 磅
+  belowskip=6pt, % 段后间距 6 磅
+  aboveskip=6pt, % 段前间距 6 磅
 }
 
 \captionsetup[table]{
-    labelsep=quad,
-    format=plain,
-    singlelinecheck=false,
-    justification=centering,
-    font={small},
-    position=below,
-    skip=6pt,
-    belowskip=6pt,
-    aboveskip=6pt
+  labelsep=quad,
+  format=plain,
+  singlelinecheck=false,
+  justification=centering,
+  font={small},
+  position=below,
+  skip=6pt,
+  belowskip=6pt,
+  aboveskip=6pt
 }
 
 \renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}}
