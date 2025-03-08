@@ -99,12 +99,14 @@
 }
 
 % 字数统计
-\immediate\write18{texcount -1 -sum -char -merge main.tex > words.count}
-\newread\wordfile
-\openin\wordfile=words.count
-\read\wordfile to \worddata
-\closein\wordfile
-\newcommand{\ouc@wordcount}{\worddata}
+\ifouc@count
+  \immediate\write18{texcount -1 -sum -char -merge main.tex > words.count}
+  \newread\wordfile
+  \openin\wordfile=words.count
+  \read\wordfile to \worddata
+  \closein\wordfile
+  \newcommand{\ouc@wordcount}{\worddata}
+\fi
 
 % ===============================================
 % Custom Command
