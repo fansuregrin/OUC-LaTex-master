@@ -14,12 +14,11 @@
 \ProcessOptions\relax
 
 \ifouc@pdf
-  \PassOptionsToClass{oneside}{ctexbook}
   \PassOptionsToClass{openany}{ctexbook}
 \else
-  \PassOptionsToClass{twoside}{ctexbook}
-  \PassOptionsToClass{openright}{ctexbook}
+\PassOptionsToClass{openright}{ctexbook}
 \fi
+\PassOptionsToClass{twoside}{ctexbook}
 \PassOptionsToPackage{quiet}{xeCJK}
 \LoadClass[UTF8,a4paper,zihao=-4]{ctexbook}
 \PassOptionsToClass{scheme=chinese}{ctexbook}
