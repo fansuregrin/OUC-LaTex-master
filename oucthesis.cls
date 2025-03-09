@@ -13,9 +13,6 @@
 \ExecuteOptions{print}
 \ProcessOptions\relax
 
-\PassOptionsToPackage{quiet}{xeCJK}
-\LoadClass[UTF8,a4paper,zihao=-4]{ctexbook}
-\PassOptionsToClass{scheme=chinese}{ctexbook}
 \ifouc@pdf
   \PassOptionsToClass{oneside}{ctexbook}
   \PassOptionsToClass{openany}{ctexbook}
@@ -23,6 +20,9 @@
   \PassOptionsToClass{twoside}{ctexbook}
   \PassOptionsToClass{openright}{ctexbook}
 \fi
+\PassOptionsToPackage{quiet}{xeCJK}
+\LoadClass[UTF8,a4paper,zihao=-4]{ctexbook}
+\PassOptionsToClass{scheme=chinese}{ctexbook}
 
 % ===============================================
 % Required Package
