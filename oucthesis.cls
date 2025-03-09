@@ -9,7 +9,6 @@
 \ouc@countfalse
 \DeclareOption{count}{\ouc@counttrue}
 
-\PassOptionsToClass{openany}{ctexbook}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 \ExecuteOptions{print}
 \ProcessOptions\relax
@@ -19,8 +18,10 @@
 \PassOptionsToClass{scheme=chinese}{ctexbook}
 \ifouc@pdf
   \PassOptionsToClass{oneside}{ctexbook}
+  \PassOptionsToClass{openany}{ctexbook}
 \else
   \PassOptionsToClass{twoside}{ctexbook}
+  \PassOptionsToClass{openright}{ctexbook}
 \fi
 
 % ===============================================
