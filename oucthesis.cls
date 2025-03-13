@@ -230,8 +230,8 @@
     nameformat  = {},
     number      = \thechapter,
     aftername   = \hspace{\ccwd},
-    beforeskip  = 24\bp@,
-    afterskip   = 18\bp@,
+    beforeskip  = 24bp, % 24磅 段前间距
+    afterskip   = 18bp, % 18磅 段后间距
     fixskip     = true,
   },
 }
@@ -319,6 +319,7 @@
   \let\clearpage\standardclearpage
   \songti\zihao{-4}
   \setlength{\baselineskip}{20pt}
+  \vspace*{15pt} % 模拟标题的单倍行距
 }{
   \noindent\hangindent=4\ccwd\relax
   \clearpage
@@ -336,6 +337,7 @@
   \ouc@chapter[Abstract]{\zihao{3}\textbf{\textrm{ABSTRACT}}}
   \let\clearpage\standardclearpage
   \setlength{\baselineskip}{20pt}
+  \vspace*{15pt} % 模拟标题的单倍行距
 }{
   \noindent\hangindent=4\ccwd\relax
   \clearpage
