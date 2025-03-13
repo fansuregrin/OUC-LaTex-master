@@ -24,6 +24,8 @@ Overleaf 缺失宋体，需要手动上传宋体文件到在线项目中。具�
 ![overleaf_demo](./img/overleaf_demo.png)
 
 ### Vscode 本地
+安装 [Texlive](https://www.tug.org/texlive/) 和 [Latex Workshop]（https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop） 插件，后使用此项目。
+
 ![demo](./img/demo.png)
 
 ## 鸣谢
