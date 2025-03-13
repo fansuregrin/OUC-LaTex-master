@@ -5,6 +5,9 @@
 \DeclareOption{print}{\ouc@pdffalse}
 \DeclareOption{pdf}{\ouc@pdftrue}
 
+\newif\ifouc@overleaf
+\DeclareOption{overleaf}{\ouc@overleaftrue}
+
 \newif\ifouc@count
 \ouc@countfalse
 \DeclareOption{count}{\ouc@counttrue}
@@ -53,9 +56,14 @@
 \RequirePackage{keyval}
 \RequirePackage{hyperref}
 
-\setCJKmainfont{SimSun}
+\ifouc@overleaf
+  \setCJKmainfont{simsun.ttc}
+  \setCJKfamilyfont{zhsong}[AutoFakeBold = {2.17}]{simsun.ttc}
+\else
+  \setCJKmainfont{SimSun}
+  \setCJKfamilyfont{zhsong}[AutoFakeBold = {2.17}]{SimSun}
+\fi
 \setmainfont{Times New Roman}
-\setCJKfamilyfont{zhsong}[AutoFakeBold = {2.17}]{SimSun}
 \renewcommand{\songti}{\CJKfamily{zhsong}}
 
 % 中英文论文题目
